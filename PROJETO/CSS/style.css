@@ -1,0 +1,481 @@
+/* Estilo geral */
+* {
+  margin: 0%;
+  padding: 0%;
+}
+
+.menu-desktop {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 40px;
+  flex: 1;
+  margin-top: -50px;
+  /* sobe mais */
+  margin-right: 30px;
+  /* move um pouco à esquerda */
+}
+
+
+.menu-desktop ul {
+  list-style: none;
+  display: flex;
+  gap: 35px;
+}
+
+.menu-desktop li a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.menu-desktop li a:hover {
+  color: #d3a15c;
+}
+
+.menu-desktop svg {
+  fill: #fff;
+  margin-top: 5px;
+  transition: fill 0.3s;
+}
+
+.menu-desktop li a:hover svg {
+  fill: #d3a15c;
+}
+
+
+
+
+
+body {
+
+  background-image: url(../IMG/fundo-litera.jpeg);
+  background-repeat: repeat;
+  background-size: cover;
+  /* Cor creme, como papel envelhecido */
+  color: #4b3a31;
+  /* Cor marrom escuro, lembrando tinta de antigamente */
+  height: 100vh;
+}
+
+/* Cabeçalho */
+header {
+  background-color: #5a2d0c;
+  /* Cor marrom escura */
+  padding: 20px;
+  display: grid;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 3px 7px black;
+}
+
+.logo {
+  display: flex;
+  margin-left: 10px;
+}
+
+/* Menu */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 35px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+nav a:hover {
+  color: #d3a15c;
+  /* Cor dourada que remete à luz suave */
+}
+
+.livros-lista,
+.fichamentos-lista {
+  margin-top: 100px;
+}
+
+.alunos-lista,
+.turmas-lista,
+.desafios-lista {
+  margin-top: 50px;
+}
+
+.corp-title,
+.corp-theme-carrossel {
+  margin-top: 40px;
+  display: grid;
+  justify-content: center;
+}
+
+.corp-title .title,
+.theme-carrossel,
+.login-corp,
+.cadastro-corp {
+  font-family: "Playfair Display", sans-serif;
+  letter-spacing: 2px;
+  color: #fff;
+  background-color: #5a2d0c;
+  box-shadow: black 2px 2px 10px;
+  padding: 2px 10px;
+
+}
+
+.livro-item,
+.turma-item,
+.fichamento-item,
+.desafio-item {
+  background-color: #fff8e1;
+  /* Fundo envelhecido */
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  text-align: center;
+  border: 2px solid #d3a15c;
+  /* Bordas douradas */
+}
+
+.livro-item h3,
+.turma-item h3,
+.fichamento-item h3,
+.desafio-item h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-family: "PT Sans", sans-serif;
+  color: #4b3a31;
+}
+
+.livro-item a,
+.turma-item a,
+.fichamento-item a,
+.desafio-item a {
+  color: #6a4e23;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.livro-item a:hover,
+.turma-item a:hover,
+.fichamento-item a:hover,
+.desafio-item a:hover {
+  color: #d3a15c;
+}
+
+/* Rodapé */
+footer {
+  background-color: #5a2d0c;
+  color: #fff;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 10px;
+  font-size: 15px;
+}
+
+/* Estilo do link */
+a {
+  color: #6a4e23;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.menu {
+  justify-content: center;
+}
+
+
+/* LOGIN & CADASTRO */
+.login-container,
+.cadastro-container {
+  align-items: center;
+  background-color: #F5EAC4;
+  filter: opacity(10px);
+  border-radius: 2rem;
+  box-shadow: rgb(117, 117, 117) 4px 4px 20px;
+  display: flex;
+  flex-direction: column;
+  margin: 5rem auto;
+  overflow: auto;
+  padding: 2rem;
+  width: 50vh;
+  z-index: 1;
+}
+
+.fichar-container{
+  align-items: center;
+  background-color: #F5EAC4;
+  filter: opacity(10px);
+  border-radius: 2rem;
+  box-shadow: rgb(117, 117, 117) 4px 4px 20px;
+  display: flex;
+  flex-direction: column;
+  margin: 5rem auto;
+  overflow: auto;
+  padding: 2rem;
+  width: 90vh;
+  z-index: 1;
+}
+
+.login-corp,
+.cadastro-corp {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.box {
+  margin: 32px 0;
+}
+
+.inputs {
+  border-radius: 10px;
+  border: 2px solid #f4e1d2;
+  box-sizing: border-box;
+  outline: none;
+  height: 40px;
+  width: 45vh;
+  transition: .3s;
+}
+
+.inputs:focus {
+  border: 2px solid pink;
+}
+
+.span-required {
+  color: #e63636;
+  font-size: 14px;
+  margin: 3px 0px 0 12px;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
+.btn button {
+  font-family: "Koulen";
+  font-size: 18px;
+  color: #fff;
+  background-color: #e9b124;
+  border-radius: 10px;
+  border: none;
+  height: 30px;
+  width: 20vh;
+  transition: .2s;
+}
+
+.btn button:hover {
+  transform: translateY(-5px);
+  background-color: #f3ba2b;
+}
+
+.span-required {
+  display: none;
+}
+
+/* Menu Mobile Button */
+.menu-mobile-button {
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.menu-mobile-button .bar {
+  width: 30px;
+  height: 4px;
+  background-color: #fff;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+/* Menu Mobile */
+.menu-mobile {
+  background-color: #5a2d0c;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100%;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.menu-mobile.open {
+  transform: translateX(0);
+}
+
+.menu-mobile ul {
+  list-style: none;
+  margin-top: 60px;
+}
+
+.menu-mobile ul li {
+  margin-bottom: 20px;
+}
+
+.menu-mobile ul li a {
+  color: white;
+  font-family: 'Playfair Display';
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+
+  /*CARROSSEL*/
+
+
+  /*MENU*/
+  .menu-mobile-button {
+    display: block;
+  }
+
+  .menu-desktop {
+    display: none;
+  }
+
+  /*LIVROS*/
+  .livros-lista {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /*TAMANHO TEXTO & BACK*/
+  .theme-carrossel {
+    font-size: 14px;
+  }
+
+  footer {
+    font-size: 10px;
+  }
+
+  .login-container,
+  .cadastro-container {
+    width: 40vh;
+  }
+
+  .box {
+    margin: 24px 0;
+  }
+
+  .box input {
+    height: 30px;
+    width: 35vh;
+  }
+
+  .btn {
+    padding: 10px;
+  }
+
+  .btn button {
+    margin-top: -5px;
+    font-size: 14px;
+    height: 25px;
+    width: 17vh;
+  }
+}
+
+@media screen and (max-width: 540px) {
+
+  .logo {
+    width: 150px;
+    height: 5px;
+    margin-bottom: 20px;
+  }
+
+  nav ul {
+    gap: 15px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .theme-carrossel {
+    font-size: 12px;
+  }
+
+  .menu-mobile ul li a {
+    font-size: 15px;
+  }
+
+  .bola {
+    display: none;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .logo {
+    font-size: 10px;
+  }
+
+  nav ul {
+    gap: 10px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .theme-carrossel {
+    font-size: 8px;
+  }
+
+  .menu-mobile ul li a {
+    font-size: 13px;
+  }
+
+
+  .login-container,
+  .cadastro-container {
+    width: 33vh;
+  }
+
+  .box {
+    margin: 16px 0;
+  }
+
+  .box input {
+    height: 25px;
+    width: 28vh;
+  }
+
+  .btn {
+    padding: 10px;
+  }
+
+  .btn button {
+    margin-top: -10px;
+    font-size: 10px;
+    height: 20px;
+    width: 15vh;
+  }
+}

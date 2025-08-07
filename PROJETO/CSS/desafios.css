@@ -1,0 +1,68 @@
+/* Página Desafios */
+* {
+  margin: 0%;
+  padding: 0%;
+}
+
+
+.desafios-lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.desafio-item {
+  background-color: #FFF;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  text-align: center;
+}
+
+.desafio-item h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.desafio-item p {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.desafio-item a {
+  color: #FF6347;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.desafio-item a:hover {
+  text-decoration: underline;
+}
+
+
+.btnx {
+ position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 200;
+  padding: 50px;
+}
+
+.btnx button {
+  font-family: "Koulen";
+  font-size: 18px;
+  color: #fff;
+  background-color: #e9b124;
+  border-radius: 20px;
+  border: none;
+  height: 30px;
+  width: 20vh;
+  transition: .2s;
+}
+
+.btnx button:hover {
+  background-color: #f3ba2b;
+}

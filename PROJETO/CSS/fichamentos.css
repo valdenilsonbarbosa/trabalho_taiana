@@ -1,0 +1,43 @@
+/* Página Fichamentos */
+* {
+  margin: 0%;
+  padding: 0%;
+}
+
+
+.fichamentos-lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.fichamento-item {
+  background-color: #FFF;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 220px;
+  text-align: center;
+}
+
+.fichamento-item h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.fichamento-item p {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.fichamento-item a {
+  color: #FF6347;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.fichamento-item a:hover {
+  text-decoration: underline;
+}
