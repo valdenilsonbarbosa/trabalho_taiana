@@ -149,7 +149,7 @@
       </div>
 
       <p class="link">
-        Não tem uma conta? <a href="cadastroUsuario.php">Cadastre-se</a>
+        Não tem uma conta? <a href="cadastro.php">Cadastre-se</a>
       </p>
     </form>
   </div>

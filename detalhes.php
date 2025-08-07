@@ -23,9 +23,6 @@ $result = $conexao->query($sql);
 ?>
 
 
-
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
