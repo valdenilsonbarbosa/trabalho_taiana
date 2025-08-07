@@ -140,8 +140,8 @@ if (isset($_POST['submit'])) {
 
       <div class="box">
         <div>
-          <input type="password" placeholder="Insira uma Senha" class="inputs required"
-            oninput="MainPasswordValidate()" name="senha" />
+          <input type="password" placeholder="Insira uma Senha" class="inputs required" minlength="6"
+            oninput="MainPasswordValidate()" name="senha"  />
         </div>
 
         <div>

@@ -35,15 +35,11 @@
 <body>
   <!-- Cabeçalho do site -->
   <header>
-    <div class="logo">
-      <div class="p1">
-        <h1>LITERA</h1>
-      </div>
+  <div class="logo">
+            <img src="IMG/logo-litera-Photoroom.png" alt="" width="250px" height="30px">
+             </div>
+         </div>
 
-      <div class="p2">
-        <h1>TURE-SE</h1>
-      </div>
-    </div>
 
     <div class="menu-mobile-button">
       <div class="bar"></div>
