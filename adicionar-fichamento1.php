@@ -13,18 +13,10 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
 
 $logado = $_SESSION['email'];
 
-
 //mantem informação salva dos livros
 $categoria_id = $_POST['categoria_id'];
 
-
-
-
-
-
-
 $sql = "SELECT * FROM aluno";
-
 
 $resultado = $conexao->query($sql);
 
@@ -35,38 +27,10 @@ if ($resultado->num_rows > 0) {
     $email = $row['email'];
     $nome = $row['nome'];
 
-    /*     print_r($turma);
-    print_r($email); */
   }
 }
 
-
-
-/* if (isset($_GET['submit'])) {
-
-  /*    print_r('<br>');
-    print_r('Fichamento: ' . $_POST['fichamento']);
-    print_r('<br>');
-    print_r('capitulo: ' . $_POST['capitulo']);  */
-
-/*  if (isset($_POST['livro'], $_POST['capitulo'], $_POST['fichamento'])) {
-    $livro = $_POST['livro'];
-    $capitulo = $_POST['capitulo'];
-    $fichamento = $_POST['fichamento'];
-    $sd = $_POST['livro'];
-    include_once('config.php');
-    /*   $fichamento = $_POST['fichamento'];
-    $capitulo = $_POST['capitulo']; */
-
-/*  $result = mysqli_query($conexao, "INSERT INTO fichamento(fichamento,capitulo,turma,nome,titulo) values ('$fichamento','$capitulo',$turma,'$nome','$sd')");
-  } else {
-    echo "Campos obrigatórios não enviados!"; */
-/*  } 
-} 
- */
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -174,37 +138,7 @@ if ($resultado->num_rows > 0) {
 
     <form action="salvar1.php" method="post">
 
-
-
-
       <?php
-      /* 
-      
-      $sql = "SELECT id, livro FROM livro  ORDER BY id ASC
-     ";
-
-
-      $resultado = $conexao->query($sql);
-
-      if ($resultado === false) {
-        die("Erro na consulta SQL: " . $conexao->error);
-      }
-
-      echo '<select name="livro" id="livro">';
-
-      echo '<option value="">Selecione uma turma</option>';
-
-      if ($resultado->num_rows > 0) {
-        while ($row = $resultado->fetch_assoc()) {
-
-          $id   = $row['id'];
-          $livro = $row['livro'];
-          echo "<option value=\"{$livro}\">{$livro}</option>";
-        }
-      } else {
-        echo '<option value="">Cadastre uma turma</option>';
-      }
-      echo '</select>'; */
 
       ?>
 
