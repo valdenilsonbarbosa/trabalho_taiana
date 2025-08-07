@@ -54,9 +54,10 @@ if ($resultado->num_rows > 0) {
   <!-- Cabeçalho do site -->
   <header>
   <div class="logo">
-           <img src="/IMG/logo-litera-Photoroom.png" alt="" width="250px" height="30px">
-            </div>
-        </div>
+            <img src="IMG/logo-litera-Photoroom.png" alt="" width="250px" height="30px">
+             </div>
+         </div>
+
 
     <div class="menu-mobile-button">
       <div class="bar"></div>
