@@ -227,7 +227,7 @@ $result = $conexao->query($sql);
           <input type="hidden" name="categoria_id" value="<?php echo $row['livro']; ?>">
 
 
-          <a class="link_fichamento" href="fichamentos-livro.php">Ver Fichamento</a>
+        
 
           <button type="submit" class="button">Adicionar Fichamento</button>
 

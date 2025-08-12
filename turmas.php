@@ -13,7 +13,7 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
 $logado = $_SESSION['email'];
 
 
-$sql = "SELECT * FROM livro";
+$sql = "SELECT * FROM turma";
 
 $result = $conexao->query($sql);
 
@@ -203,42 +203,41 @@ $result = $conexao->query($sql);
     <h2 class="title">Turmas Cadastradas</h2>
   </div>
 
-  <div class="container">
-    <?php while ($row = $result->fetch_assoc()): ?>
-      <div class="caixa">
-        <strong>
-          <!-- <p>Livro:</p> -->
+    <div class="container">
+        <?php while ($row = $result->fetch_assoc()): ?>
+        <div class="caixa">
+            <strong>
+            <!-- <p>Livro:</p> -->
+
+            <p class="t">Turma:</p>
+            </strong><?php echo htmlspecialchars($row['t']); ?>
+
+            <a href="fichamentos-turma.php"> <input type="submit" value = 'Ver Fichamentos' > </a>
+            
+
+            <?php
+
+            
+
+            ?>
 
 
-        </strong><?php echo htmlspecialchars($row['t']); ?>
+            <form action="turmas.php" method="post" style="display:inline;">
 
-        <p class="autor">Autor:</p>
+            <input type="hidden" name="categoria_id" value="<?php echo $row['t']; ?>">
 
-        <?php
+            </form>
 
-        
+        </div>
+        <?php endwhile; ?>
 
-        ?>
-
-        <form action="turmas.php" method="post" style="display:inline;">
-
-          <input type="hidden" name="categoria_id" value="<?php echo $row['livro']; ?>">
-
-          
-          <button type="submit" class="button">Ver Fichamento</button>
-
-        </form>
-
-      </div>
-    <?php endwhile; ?>
-
-  </div>
+    </div>
 
 
-  <div class="btnx">
-    <a href="cadastro-turma.php"><button class="button" type="submit">Cadastrar livro</button>
-    </a>
-  </div>
+    <div class="btnx">
+        <a href="cadastro-turma.php"><button class="button" type="submit">Cadastrar turma</button>
+        </a>
+    </div>
 
   <footer>
     <p>
