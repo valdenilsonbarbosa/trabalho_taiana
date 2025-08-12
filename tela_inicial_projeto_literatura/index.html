@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleção de Usuário</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <h1>Bem-vindo!</h1>
+                <p>Para continuar, selecione o seu perfil:</p>
+            </div>
+            
+            <div class="buttons-container">
+                <button class="user-button professor-btn" onclick="selectUserType('professor')" aria-label="Selecionar perfil de Professor">
+                    <div class="icon">
+                        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                        </svg>
+                    </div>
+                    <h3>Professor</h3>
+                    <p>Acesso completo para educadores e instrutores</p>
+                </button>
+                
+                <button class="user-button student-btn" onclick="selectUserType('aluno')" aria-label="Selecionar perfil de Aluno">
+                    <div class="icon">
+                        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                            <path d="M8 7h8M8 11h8M8 15h5"/>
+                        </svg>
+                    </div>
+                    <h3>Aluno</h3>
+                    <p>Área dedicada para estudantes e aprendizes</p>
+                </button>
+                
+                <button class="user-button visitor-btn" onclick="selectUserType('visitante')" aria-label="Selecionar perfil de Visitante">
+                    <div class="icon">
+                        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <h3>Visitante</h3>
+                    <p>Explore e conheça nossa plataforma</p>
+                </button>
+            </div>
+            
+            <div class="selection-result" id="selectionResult" style="display: none;">
+                <div class="success-message">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20,6 9,17 4,12"/>
+                    </svg>
+                    <span id="resultText"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+

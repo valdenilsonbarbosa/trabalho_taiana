@@ -1,6 +1,6 @@
 <?php
 
-$dbHost = '127.0.0.1:3306';
+$dbHost = '127.0.0.1:3307';
 $dbUsername = 'root';
 $dbPassword = '';
 $dbName = 'ptt';
