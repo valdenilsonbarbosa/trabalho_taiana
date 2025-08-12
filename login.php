@@ -136,7 +136,6 @@
     </form>
   </div>
 
-  <script src="validacao-login.js"></script>
 </body>
 
 </html>
