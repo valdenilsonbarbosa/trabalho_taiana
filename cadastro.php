@@ -120,7 +120,7 @@ if (isset($_POST['submit'])) {
     <form action="cadastro.php" method="POST">
       <div class="box">
         <div>
-          <input type="email" placeholder="Insira um Email" class="inputs required" oninput="emailValidate()" name="email" />
+          <input type="email" placeholder="Insira um Email" class="inputs required" oninput="emailValidate()" name="email" id="email" />
         </div>
 
         <div>
@@ -130,7 +130,7 @@ if (isset($_POST['submit'])) {
 
       <div class="box">
         <div>
-          <input type="text" placeholder="Digite seu nome" class="inputs required" oninput="nameValidate()" name="name" />
+          <input type="text" placeholder="Digite seu nome" class="inputs required" oninput="nameValidate()" name="name" id="nome" />
         </div>
 
         <div>
@@ -141,7 +141,7 @@ if (isset($_POST['submit'])) {
       <div class="box">
         <div>
           <input type="password" placeholder="Insira uma Senha" class="inputs required" minlength="6"
-            oninput="MainPasswordValidate()" name="senha"  />
+            oninput="MainPasswordValidate()" name="senha" id="senha"  />
         </div>
 
         <div>

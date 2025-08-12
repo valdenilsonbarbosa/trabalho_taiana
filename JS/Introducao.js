@@ -17,7 +17,8 @@ function selectUserType(userType) {
     // Mostra o resultado da seleção
     const resultDiv = document.getElementById('selectionResult');
     const resultText = document.getElementById('resultText');
-    
+
+
     // Define a mensagem baseada no tipo de usuário
     let message = '';
     if (userType === 'professor') {
@@ -44,6 +45,7 @@ function selectUserType(userType) {
         if (userType === 'professor') {
             console.log('Redirecionando para área do professor...');
             // window.location.href = '/professor-dashboard';
+
         } else if (userType === 'aluno') {
             console.log('Redirecionando para área do aluno...');
             // window.location.href = '/student-dashboard';
