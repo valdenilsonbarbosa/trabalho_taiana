@@ -200,7 +200,7 @@ $result = $conexao->query($sql);
   </header>
 
   <div class="corp-title">
-    <h2 class="title">Livros Cadastrados</h2>
+    <h2 class="title">Turmas Cadastradas</h2>
   </div>
 
   <div class="container">
@@ -210,30 +210,17 @@ $result = $conexao->query($sql);
           <!-- <p>Livro:</p> -->
 
 
-        </strong><?php echo htmlspecialchars($row['livro']); ?>
+        </strong><?php echo htmlspecialchars($row['t']); ?>
 
         <p class="autor">Autor:</p>
 
         <?php
 
-        echo "<div class = nome_autor>";
-        echo htmlspecialchars($row['autor']);
-        echo "</div>";
+        
 
         ?>
 
-        <form action="adicionar-fichamento1.php" method="post" style="display:inline;">
-
-          <input type="hidden" name="categoria_id" value="<?php echo $row['livro']; ?>">
-
-
-          <a class="link_fichamento" href="fichamentos-livro.php">Ver Fichamento</a>
-
-          <button type="submit" class="button">Adicionar Fichamento</button>
-
-        </form>
-
-        <form action="fichamentos-livro.php" method="post" style="display:inline;">
+        <form action="turmas.php" method="post" style="display:inline;">
 
           <input type="hidden" name="categoria_id" value="<?php echo $row['livro']; ?>">
 
@@ -249,7 +236,7 @@ $result = $conexao->query($sql);
 
 
   <div class="btnx">
-    <a href="cadastro-livro.php"><button class="button" type="submit">Cadastrar livro</button>
+    <a href="cadastro-turma.php"><button class="button" type="submit">Cadastrar livro</button>
     </a>
   </div>
 
