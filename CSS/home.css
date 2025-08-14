@@ -252,6 +252,22 @@ main {
   background-color: #b22222;
 }
 
+.equipe-info{
+  display: grid;
+  justify-content: center;
+  margin-bottom: 2rem;
+  margin-top: 3rem;
+}
+
+.equipe-info a{
+  color: #5a2d0c;
+  text-decoration: none;
+}
+
+.equipe-info a:hover{
+  color: #8a6448;
+}
+
 footer {
   background-color: #5a2d0c;
   color: #fff;
