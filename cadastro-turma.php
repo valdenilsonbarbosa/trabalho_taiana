@@ -37,7 +37,7 @@ header('Location: cadastro.php');
     rel="stylesheet" />
 
   <link rel="stylesheet" href="CSS/style.css" />
-  <link rel="stylesheet" href="CSS/login.css" />
+  
   <title>PROJETO LITERATURA</title>
 </head>
 
@@ -45,7 +45,7 @@ header('Location: cadastro.php');
   <!-- Cabeçalho do site -->
   <header>
   <div class="logo">
-           <img src="/IMG/logo-litera-Photoroom.png" alt="" width="250px" height="30px">
+           <img src="IMG/logo-litera-Photoroom.png" alt="" width="250px" height="30px">
             </div>
         </div>
 
@@ -123,19 +123,19 @@ header('Location: cadastro.php');
       </div>
 
       <div class="login-text">
-        <h2>Cadastro</h2>
+        <h2>Turma</h2>
       </div>
     </div>
 
     <form action="cadastro-turma.php" method="post" id="form">
       <div class="box">
         <div>
-          <input type="text" placeholder="  Insira o nome da turma" name="t" class="inputs required" />
+          <input type="text" placeholder="  Insira o nome da turma" name="t" class="inputex" required />
         </div>
 
       
-      <div class="btn">
-        <input type="submit" class="button" name="submit" value="Cadastrar"/>
+      <div class="btnc">
+        <input type="submit" class="buttonc" name="submit" value="Cadastrar"/>
        <!--  <button class="button" type="submit">Cadastrar</button> -->
       </div>
 

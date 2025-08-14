@@ -133,7 +133,7 @@ if ($resultado->num_rows > 0) {
       </div>
 
       <div class="login-text">
-        <h2>Cadastro</h2>
+        <h2>Fichamento</h2>
       </div>
     </div>
 
@@ -146,15 +146,15 @@ if ($resultado->num_rows > 0) {
       <input type="hidden" name="categoria_id" value="<?php echo $categoria_id; ?>">
 
 
-      <div class="box">
+      <div class="boxficha">
         <div>
           <textarea name="fichamento" id="Fichamento" cols="30" rows="10"></textarea>
         </div>
       </div>
 
-      <div class="box">
+      <div class="tituloficha">
         <div>
-          <input name="capitulo" type="text" placeholder="  Insira o capítulo (Ex: Cap. 52)" class="inputs required" />
+          <input name="capitulo" type="text" placeholder="  Insira o titulo do fichamento" class="inputex" require />
         </div>
 
       </div>

@@ -54,7 +54,7 @@
 
 body {
 
-  background-image: url(../IMG/fundo-litera.jpeg);
+  background-image: url(../IMG/fundo-litera.png);
   background-repeat: repeat;
   background-size: cover;
   /* Cor creme, como papel envelhecido */
@@ -116,6 +116,8 @@ nav a:hover {
   justify-content: center;
 }
 
+
+
 .corp-title .title,
 .theme-carrossel,
 .login-corp,
@@ -143,6 +145,8 @@ nav a:hover {
   border: 2px solid #d3a15c;
   /* Bordas douradas */
 }
+
+
 
 .livro-item h3,
 .turma-item h3,
@@ -205,7 +209,7 @@ a:hover {
   align-items: center;
   background-color: #F5EAC4;
   filter: opacity(10px);
-  border-radius: 2rem;
+  border-radius: 1.2rem;
   box-shadow: rgb(117, 117, 117) 4px 4px 20px;
   display: flex;
   flex-direction: column;
@@ -220,7 +224,7 @@ a:hover {
   align-items: center;
   background-color: #F5EAC4;
   filter: opacity(10px);
-  border-radius: 2rem;
+  border-radius: 1.2rem;
   box-shadow: rgb(117, 117, 117) 4px 4px 20px;
   display: flex;
   flex-direction: column;
@@ -228,6 +232,21 @@ a:hover {
   overflow: auto;
   padding: 2rem;
   width: 90vh;
+  z-index: 1;
+}
+
+.fichar-turma-container{
+  align-items: center;
+  background-color: #F5EAC4;
+  filter: opacity(10px);
+  border-radius: 1.2rem;
+  box-shadow: rgb(117, 117, 117) 4px 4px 20px;
+  display: flex;
+  flex-direction: column;
+  margin: 5rem auto;
+  overflow: auto;
+  padding: 2rem;
+  width: 50vh;
   z-index: 1;
 }
 
@@ -253,7 +272,19 @@ a:hover {
 }
 
 .inputs:focus {
-  border: 2px solid pink;
+  border: 2px solid black;
+}
+
+.inputex{
+
+  border-radius: 10px;
+  border:none;
+  box-sizing: border-box;
+  outline: none;
+  height: 40px;
+  width: 45vh;
+  transition: .3s;
+
 }
 
 .span-required {
@@ -262,11 +293,40 @@ a:hover {
   margin: 3px 0px 0 12px;
 }
 
-.btn {
+.btn,.btnc {
   display: flex;
   justify-content: center;
   padding: 15px;
+  
 }
+
+.btnc{
+  margin-bottom: -30px;
+}
+
+
+.btn .buttonc , .btnc .buttonc{
+  margin-top: 20px;
+}
+
+.btn input,.btnc input{
+  font-family: "Koulen";
+  font-size: 18px;
+  color: #fff;
+  background-color: #e9b124;
+  border-radius: 10px;
+  border: none;
+  height: 30px;
+  width: 20vh;
+  transition: .2s;
+}
+
+.btn input:hover{
+  transform: scale(5px);
+  background-color: #f3ba2b;
+}
+
+
 
 .btn button {
   font-family: "Koulen";
@@ -334,6 +394,8 @@ a:hover {
   margin-bottom: 20px;
 }
 
+
+
 .menu-mobile ul li a {
   color: white;
   font-family: 'Playfair Display';
@@ -343,6 +405,25 @@ a:hover {
   gap: 10px;
   text-decoration: none;
 }
+
+select{
+  width: 400px;
+  height: 30px;
+  text-align: center;
+  background-color: #e9b124;
+  border-radius: 6px;
+  border: none;
+  color: white;
+}
+
+.selecionar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
 
 
 /* Responsividade */

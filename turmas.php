@@ -206,7 +206,12 @@ $result = $conexao->query($sql);
 
                     <form action="fichamentos-turma.php" method="post">
                         <input type="hidden" name="turma_id" value="<?php echo $row['id']; ?>">
-                        <button type="submit" innerText="" >Acessar turma</button>
+                        <div class="btn">
+
+                        <button type="submit" class="buttona" >Acessar turma</button>
+                        
+                        </div>
+                        
                     </form>
 
             <?php

@@ -53,7 +53,7 @@ header('Location: livros_atualizado.php');
   <!-- Cabeçalho do site -->
   <header>
   <div class="logo">
-           <img src="/IMG/logo-litera-Photoroom.png" alt="" width="250px" height="30px">
+           <img src="IMG/logo-litera-Photoroom.png" alt="" width="250px" height="30px">
             </div>
         </div>
 
@@ -131,19 +131,19 @@ header('Location: livros_atualizado.php');
       </div>
 
       <div class="login-text">
-        <h2>Cadastro</h2>
+        <h2>Livro</h2>
       </div>
     </div>
 
     <form action="cadastro-livro.php" method="post" id="form">
       <div class="box">
         <div>
-          <input type="livro" placeholder="  Insira o nome do livro" name="livro" class="inputs required" />
+          <input type="livro" placeholder="  Insira o nome do livro" name="livro" class="inputex" require />
         </div>
 
       <div class="box">
         <div>
-          <input type="autor" placeholder="Insira o nome do autor" name="autor" class="inputs required" />
+          <input type="autor" placeholder="Insira o nome do autor" name="autor" class="inputex" require  />
         </div>
       </div>
 

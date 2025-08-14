@@ -229,7 +229,8 @@ $result = $conexao->query($sql);
 
         
 
-          <button type="submit" class="button">Adicionar Fichamento</button>
+          <div class="btn"><button type="submit" class="buttona">Adicionar Fichamento</button></div>
+          
 
         </form>
 
@@ -237,8 +238,8 @@ $result = $conexao->query($sql);
 
           <input type="hidden" name="categoria_id" value="<?php echo $row['livro']; ?>">
 
+          <div class="btn"><button type="submit" class="button">Ver Fichamento</button></div>
           
-          <button type="submit" class="button">Ver Fichamento</button>
 
         </form>
 

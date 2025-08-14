@@ -160,7 +160,10 @@ if (isset($_POST['submit'])) {
       </div>
 
 
-      <?php
+      <div class="selecionar">
+        <div>
+
+        <?php
       $sql = "SELECT id, t FROM turma  ORDER BY t ASC
      ";
 
@@ -171,6 +174,7 @@ if (isset($_POST['submit'])) {
         die("Erro na consulta SQL: " . $conexao->error);
       }
 
+      
       echo '<select name="turma" id="turma">';
 
       echo '<option value="">Selecione uma turma</option>';
@@ -188,6 +192,10 @@ if (isset($_POST['submit'])) {
       echo '</select>';
       
       ?>
+        </div>
+     
+      </div>
+     
 
       <div class="btn">
         <input type="submit" value="Cadastrar" name="submit">
