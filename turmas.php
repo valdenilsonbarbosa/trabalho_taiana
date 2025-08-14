@@ -4,14 +4,6 @@ session_start();
 
 include_once('config.php');
 
-if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
-  unset($_SESSION['email']);
-  unset($_SESSION['senha']);
-  // header('Location: login.php');
-}
-
-$logado = $_SESSION['email'];
-
 
 $sql = "SELECT * FROM turma";
 
@@ -212,8 +204,10 @@ $result = $conexao->query($sql);
             <p class="t">Turma:</p>
             </strong><?php echo htmlspecialchars($row['t']); ?>
 
-            <a href="fichamentos-turma.php"> <input type="submit" value = 'Ver Fichamentos' > </a>
-            
+                    <form action="fichamentos-turma.php" method="post">
+                        <input type="hidden" name="turma_id" value="<?php echo $row['id']; ?>">
+                        <button type="submit" innerText="" >Acessar turma</button>
+                    </form>
 
             <?php
 
@@ -224,7 +218,7 @@ $result = $conexao->query($sql);
 
             <form action="turmas.php" method="post" style="display:inline;">
 
-            <input type="hidden" name="categoria_id" value="<?php echo $row['t']; ?>">
+           
 
             </form>
 
