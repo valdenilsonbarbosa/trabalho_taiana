@@ -125,24 +125,12 @@ body {
   transform: translateX(-58%) !important;
 }
 
-
-
-.slider-arrow {
-  background: #fff;
-  width: 4rem;
-  height: 4rem;
-  border-radius: 50%;
-  left: 40%;
-  transform: translateX(-40%);
-  filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
-}
-
-.tranding-slider-control .slider-arrow ion-icon {
+.tranding-slider-control {
   font-size: 2rem;
   color: #222224;
 }
 
-.tranding-slider-control .slider-arrow::after {
+.tranding-slider-control {
   content: '';
 }
 
@@ -172,11 +160,103 @@ body {
   top: 0;
 }
 
+.texto-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+  margin-bottom: 10rem;
+  background-color: #5a2d0c;
+  opacity: 80%;
+  
+}
+
+.texto-introducao{
+  color: white;
+  max-width: 130rem;
+  text-align: left;
+  padding: 7rem 0;
+  font-family: inherit;
+  font-size: 1.8rem;
+  line-height: 3rem;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  justify-content: space-between;
+  gap: 7rem;
+  padding: 20px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s;
+}
+
+.livro-img-pdf{
+  display: flex;
+  justify-content: center;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 50%;
+  height: 20rem;
+  border-radius: 1rem;
+  margin-top: 1rem;
+}
+
+.img-livro-pdf{
+  display: flex;
+  justify-content: center;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 1.2em;
+  color: black;
+}
+
+.card p {
+  font-size: 0.95em;
+  color: #333;
+  margin: 10px 0;
+}
+
+.card a {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  background-color: #8B0000;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.card a:hover {
+  background-color: #b22222;
+}
+
 footer {
   background-color: #5a2d0c;
   color: #fff;
   text-align: center;
-  position: fixed;
+  position: relative;
   bottom: 0;
   width: 100%;
   z-index: 10;
