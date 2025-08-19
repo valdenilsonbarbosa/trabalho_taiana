@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.corp-title{
+    margin: 5rem 0;
+}
+.membros{
+    display: flex;
+    margin-bottom: 7rem;
+    background-color: #5a2d0c;
+    padding: 1rem 1rem 0;
+    gap: 10rem;
+}
+
+.img img{
+    width: 25rem;
+}
+
+.redes{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1rem 0;
+}
+
+.linkedin, .instagram, .github{
+    color: white;
+    justify-content: center;
+    border-radius: 1rem;
+}
+
+.linkedin:hover{
+    color: rgb(88, 88, 255);
+    transition: 0.2s;
+}
+
+.linkedin svg:hover{
+    background-color: white;
+    border-radius: 0.2rem;
+    transition: 0s;
+}
+
+.instagram:hover{
+    transition: 0.2s;
+}
+
+.instagram svg:hover{
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    border-radius: 0.6rem;
+    transition: 0s;
+}
+
+.github:hover{
+    color: rgb(165, 75, 165);
+    transition: 0.2s;
+}
+
+.github svg:hover{
+    background-color: white;
+    border-radius: 1.3rem;
+    transition: 0s;
+}
+
+.desc-membros{
+    max-width: 60rem;
+    margin-top: 5rem;
+}
+
+.desc-membros p{
+    color: white;
+    font-family: inherit;
+    font-size: 1.8rem;
+}
+
