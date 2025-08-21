@@ -7,9 +7,15 @@
 body {
   font-family: 'Merriweather', serif;
   background-color: #f6dfcd;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-
+main {
+  flex: 1;
+  padding-bottom: 100px; /* Espaço para o footer fixo */
+}
 
 .menu-desktop ul li a {
   color: white;
@@ -20,36 +26,51 @@ body {
 /* Livros */
 .livros-lista {
   display: flex;
- 
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 40px;
+  align-items: center;
+  gap: 2  0px;
   margin-top: 20px;
-  
+  padding: 20px;
+  min-height: 60vh;
 }
 
 .livro-item {
   position: relative;
   background-color: #FFF;
-  padding: 12px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  height: 18rem;
-  width: 220px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  height: 20rem;
+  width: 260px;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.livro-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .livro-item h3 {
-  font-size: 20px;
-  margin-bottom: 20px;
+  font-size: 18px;
+  margin-bottom: 10px;
   color: #333;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 .livro-item p {
   color: #666;
+  font-size: 14px;
+  margin-bottom: 15px;
+  flex-grow: 1;
 }
 
 .livro-item a {
-  
   color: #FF6347;
   font-weight: bold;
   text-decoration: none;
@@ -60,11 +81,15 @@ body {
 }
 
 .btnx {
- position: fixed;
+  position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
   z-index: 200;
-  padding: 50px;
+  padding: 15px;
+  background: linear-gradient(to top,#5a2d0c 0%, #5a2d0c 100%);
+  display: flex;
+  justify-content: center;
 }
 
 .btnx button {
@@ -72,47 +97,141 @@ body {
   font-size: 18px;
   color: #fff;
   background-color: #e9b124;
-  border-radius: 20px;
+  border-radius: 25px;
   border: none;
-  height: 30px;
-  width: 20vh;
-  transition: .2s;
+  height: 45px;
+  width: 200px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.btnZ button:hover {
+.btnx button:hover {
   background-color: #f3ba2b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.nome-autor{
+.nome-autor {
   font-size: 12px;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.btnZ {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
 }
 
 .btnZ button {
-  margin-left: 1.9rem;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  margin-bottom: 1rem;
-  margin-top: 10px;
   font-family: "Koulen";
-  font-size: 18px;
+  font-size: 14px;
   color: #fff;
   background-color: #e9b124;
   border-radius: 20px;
   border: none;
-  height: 30px;
-  width: 20vh;
-  transition: .2s;
+  height: 35px;
+  width: 100%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .btnZ button:hover {
   background-color: #f3ba2b;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.ver-fichamentos{
+.ver-fichamentos {
   display: flex;
   justify-content: center;
   align-items: center;
+}
 
+/* Responsividade */
+
+@media (max-width: 1224px) {
+  .livros-lista {
+    gap: 20px;
+    padding: 15px;
+  }
+  
+  .livro-item {
+    width: 90%;
+    max-width: 300px;
+    height: auto;
+    min-height: 18rem;
+  }
+  
+  .btnx {
+    padding: 10px;
+  }
+  
+  .btnx button {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .container{
+    margin-left: 100px;
+  }
+}
+
+@media (max-width: 980px) {
+  .livros-lista {
+    gap: 20px;
+    padding: 15px;
+  }
+  
+  .livro-item {
+    width: 90%;
+    max-width: 300px;
+    height: auto;
+    min-height: 18rem;
+  }
+  
+  .btnx {
+    padding: 10px;
+  }
+  
+  .btnx button {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .container{
+    margin-left: 50px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .livros-lista {
+    gap: 20px;
+    padding: 15px;
+  }
+  
+  .livro-item {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    min-height: 18rem;
+  }
+  
+  .btnx {
+    padding: 10px;
+  }
+  
+  .btnx button {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .container{
+    margin-left: 10px;
+  }
 }
 

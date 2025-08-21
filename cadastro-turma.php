@@ -16,7 +16,7 @@ include_once('config.php');
 
 $result = mysqli_query($conexao, "INSERT INTO turma(t) values ('$t')");
 
-header('Location: cadastro.php');
+header('Location: turmas.php');
 }
 
 

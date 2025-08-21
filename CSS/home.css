@@ -174,7 +174,7 @@ body {
   color: white;
   max-width: 130rem;
   text-align: left;
-  padding: 7rem 0;
+  padding: 6rem 0;
   font-family: inherit;
   font-size: 1.8rem;
   line-height: 3rem;
@@ -280,32 +280,276 @@ footer {
   font-size: 15px;
 }
 
+.equipe-info{
+  display: grid;
+  justify-content: center;
+  margin-bottom: 2rem;
+  margin-top: 3rem;
+}
+
+.equipe-info a{
+  color: #5a2d0c;
+  text-decoration: none;
+}
+
+.equipe-info a:hover{
+  color: #8a6448;
+}
+
+
+
+@media (max-width: 1370px) {
+  .container {
+    width: 80%;
+    padding: 2rem;
+  }
+  
+  main {
+    gap: 5rem;
+    padding: 15px;
+  }
+  
+  .card {
+    width: 28rem;
+  }
+
+  .texto-introducao {
+    padding: 5rem 2rem;
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    width: 90%;
+    padding: 1.5rem;
+  }
+  
+  main {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 4rem;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  
+  .texto-container {
+    margin-top: 3rem;
+    margin-bottom: 6rem;
+  }
+  
+  .texto-introducao {
+    padding: 5rem 2rem;
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+  }
+}
 
 @media (max-width: 768px) {
-
-
-
+  .container {
+    width: 100%;
+    padding: 1rem;
+  }
   
+  .tranding-slider {
+    height: 45rem;
+    padding: 1rem 0;
+  }
+  
+  .tranding-slide {
+    height: 22rem;
+    width: 22rem;
+  }
+  
+  .tranding-slide-img img {
+    height: 33rem;
+    width: 22rem;
+  }
+  
+  main {
+    grid-template-columns: 1fr;
+    gap: 5rem;
+    padding: 10px;
+  }
+  
+  .card {
+    width: 50%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .card img {
+    width: 60%;
+    height: 25rem;
+  }
+  
+  .texto-container {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+  }
+  
+  .texto-introducao {
+    padding: 2rem 2rem;
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+    text-align: justify;
+  }
+  
+  .book-name {
+    font-size: 18px;
+  }
+  
+  .equipe-info {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .equipe-info a {
+    font-size: 14px;
+  }
 }
 
 @media screen and (max-width: 540px) {
-
-
+  .container {
+    width: 98%;
+    padding: 0.5rem;
+  }
+  
+  .tranding-slider {
+    height: 40rem;
+  }
+  
+  .tranding-slide {
+    height: 28rem;
+    width: 18rem;
+  }
+  
+  .tranding-slide-img img {
+    height: 29rem;
+    width: 18rem;
+  }
+  
+  .card {
+    max-width: 350px;
+  }
+  
+  .card img {
+    width: 70%;
+    height: 16rem;
+  }
+  
+  .texto-introducao {
+    padding: 3rem 2rem;
+    font-size: 1.4rem;
+    line-height: 2rem;
+  }
+  
+  .book-name {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 480px) {
+  .container {
+    width: 100%;
+    padding: 0.25rem;
+  }
+  
+  .tranding-slider {
+    height: 35rem;
+  }
+  
+  .tranding-slide {
+    height: 29rem;
+    width: 14rem;
+  }
+  
+  .tranding-slide-img img {
+    height: 29rem;
+    width: 14rem;
+  }
+  
+  .card {
+    max-width: 400px;
+  }
+  
+  .card img {
+    width: 60%;
+    height: 14rem;
+  }
+  
+  .card-content {
+    padding: 10px;
+  }
+  
+  .card h2 {
+    font-size: 1.1em;
+  }
+  
+  .card p {
+    font-size: 0.9em;
+  }
+  
+  .texto-introducao {
+    padding: 2rem 1.5rem;
+    font-size: 1.3rem;
+    line-height: 1.8rem;
+  }
+  
+  .book-name {
+    font-size: 14px;
+    margin-left: 0.5rem;
+  }
 
- .swiper-button-next {
-  margin-left: 60px;
-  right: 90% !important;
-  transform: translateX(-58%) !important;
+  .swiper-button-next {
+    margin-left: 60px;
+    right: 90% !important;
+    transform: translateX(-58%) !important;
+  }
+
+  .swiper-button-prev{
+    margin-right: 50px;
+    left: 12% !important;
+    transform: translateX(-58%) !important;
+  }
 }
 
-.swiper-button-prev{
-  margin-right: 50px;
-  left: 12% !important;
-  transform: translateX(-58%) !important;
+@media (max-width: 320px) {
+  .tranding-slider {
+    height: 30rem;
+  }
+  
+  .tranding-slide {
+    height: 22rem;
+    width: 14rem;
+  }
+  
+  .tranding-slide-img img {
+    height: 23rem;
+    width: 14rem;
+  }
+  
+  .card {
+    max-width: 280px;
+  }
+  
+  .card img {
+    width: 85%;
+    height: 12rem;
+  }
+  
+  .texto-introducao {
+    padding: 1.5rem 0.25rem;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+  }
+  
+  .book-name {
+    font-size: 12px;
+  }
 }
 
- 
-}

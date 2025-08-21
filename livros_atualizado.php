@@ -4,13 +4,6 @@ session_start();
 
 include_once('config.php');
 
-if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
-  unset($_SESSION['email']);
-  unset($_SESSION['senha']);
-  // header('Location: login.php');
-}
-
-$logado = $_SESSION['email'];
 
 
 $sql = "SELECT * FROM livro";
@@ -39,41 +32,99 @@ $result = $conexao->query($sql);
   <title>PROJETO LITERATURA</title>
 
   <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 80px;
+    }
+
+    main {
+      flex: 1;
+    }
+
     .container {
       display: flex;
-      gap: 20px;
+      gap: 30px;
       flex-wrap: wrap;
-
-
-
+      justify-content: center;
+      align-items: center;
+      min-height: 75vh;
+      padding: 20px;
     }
 
     .caixa {
-      border: 1px solid #ccc;
+      border: 1px solid #ddd;
       padding: 20px;
-      width: 200px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      color: #666;
+      width: 260px;
+      height: 20rem;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      color: #333;
       text-align: center;
-      line-height: 1.5rem;
-      margin-left: 2rem;
-      margin-top: 2rem;
-      border-radius: 8px;
+      line-height: 1.6;
+      border-radius: 12px;
       background-color: #FFF;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
-
+    .caixa:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
     .link_fichamento {
-      color: red;
+      color: #FF6347;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 14px;
+      padding: 8px 16px;
+      border: 2px solid #FF6347;
+      border-radius: 20px;
+      display: inline-block;
+      transition: all 0.3s ease;
+      margin: 5px;
+    }
+
+    .link_fichamento:hover {
+      background-color: #FF6347;
+      color: white;
+      text-decoration: none;
+      transform: translateY(-1px);
     }
 
     .autor {
-      font-size: 10px;
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 8px;
     }
 
     .nome_autor {
-      font-size: 10px;
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 8px;
+    }
+
+    .botoes-livro {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #5a2d0c;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      z-index: 10;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
     }
   </style>
 

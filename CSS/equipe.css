@@ -64,6 +64,8 @@
 }
 
 .desc-membros{
+    display: flex;
+    justify-content: center;
     max-width: 60rem;
     margin-top: 5rem;
 }
@@ -74,3 +76,143 @@
     font-size: 1.8rem;
 }
 
+
+/* ===== RESPONSIVIDADE ===== */
+
+/* Tablet (768px a 1024px) */
+
+@media (max-width: 1370) {
+    .membros {
+        gap: 5rem;
+        padding: 1.5rem;
+    }
+    
+    .img img {
+        width: 20rem;
+    }
+    
+    .desc-membros {
+        
+        max-width: 45rem;
+        margin-top: 0rem;
+    }
+    
+    .desc-membros p {
+        
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .membros {
+        gap: 5rem;
+        padding: 1.5rem;
+    }
+    
+    .img img {
+        width: 20rem;
+    }
+    
+    .desc-membros {
+        max-width: 45rem;
+        margin-top: 3rem;
+    }
+    
+    .desc-membros p {
+        font-size: 1.6rem;
+    }
+}
+
+/* Tablet Pequeno (577px a 767px) */
+@media (max-width: 767px) {
+    .membros {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 1rem;
+        margin-bottom: 5rem;
+    }
+    
+    .img img {
+        width: 100%;
+        max-width: 25rem;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .desc-membros {
+        max-width: 100%;
+        margin-top: 1.5rem;
+    }
+    
+    .desc-membros p {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+    
+    .redes {
+        margin: 1.5rem 0;
+    }
+    
+    .corp-title {
+        margin: 3rem 0;
+    }
+}
+
+/* Mobile (até 576px) */
+@media (max-width: 576px) {
+    .membros {
+        gap: 1.5rem;
+        padding: 0.8rem;
+        margin-bottom: 4rem;
+    }
+    
+    .img img {
+        max-width: 20rem;
+    }
+    
+    .desc-membros p {
+        font-size: 1.2rem;
+        line-height: 1.5;
+    }
+    
+    .redes {
+        gap: 1.5rem;
+    }
+    
+    .redes svg {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .container-title h2.title {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+}
+
+/* Menu Mobile - Responsividade */
+@media (max-width: 768px) {
+    .menu-desktop {
+        display: none;
+    }
+    
+    
+    header {
+        padding: 1rem;
+    }
+    
+    .logo img {
+        max-width: 200px;
+    }
+}
+
+/* Desktop (acima de 768px) */
+@media (min-width: 769px) {
+
+    
+    .menu-overlay {
+        display: none;
+    }
+}
+
+/* Ajustes para telas muito grandes (acima de 1440px) */

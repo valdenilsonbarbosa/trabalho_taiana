@@ -27,46 +27,256 @@ $result = $conexao->query($sql);
     rel="stylesheet" />
 
   <link rel="stylesheet" href="CSS/style.css" />
-  <link rel="stylesheet" href="CSS/livros.css" />
+  <link rel="stylesheet" href="CSS/turmas.css" />
   <title>PROJETO LITERATURA</title>
 
   <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 80px;
+    }
+
+    main {
+      flex: 1;
+    }
+
     .container {
       display: flex;
-      gap: 20px;
+      gap: 30px;
       flex-wrap: wrap;
-
-
-
+      justify-content: center;
+      align-items: center;
+      min-height: 155vh;
+      padding: 20px;
     }
 
     .caixa {
-      border: 1px solid #ccc;
-      padding: 20px;
-      width: 200px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      color: #666;
+      
+      border: 1px solid #ddd;
+      padding: 25px;
+      width: 270px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      color: #333;
       text-align: center;
-      line-height: 1.5rem;
-      margin-left: 2rem;
-      margin-top: 2rem;
-      border-radius: 8px;
+      line-height: 1.6;
+      border-radius: 12px;
       background-color: #FFF;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-top:-120px;
+    }
 
-
+    .caixa:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
     .link_fichamento {
-      color: red;
+      color: #FF6347;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .link_fichamento:hover {
+      text-decoration: underline;
+      color: #e55347;
     }
 
     .autor {
-      font-size: 10px;
+      font-size: 12px;
+      color: #888;
     }
 
     .nome_autor {
-      font-size: 10px;
+      font-size: 12px;
+      color: #888;
     }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #5a2d0c;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      z-index: 10;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+
+    }
+
+    
+/* ===== RESPONSIVIDADE PARA TURMAS ===== */
+
+/* Tablet (768px a 1024px) */
+@media (max-width: 1200px) {
+    .container {
+        gap: 25px;
+        padding: 15px;
+      min-height: 115vh;
+      margin-left: 100px;
+    }
+    
+    .caixa {
+        width: 240px;
+        padding: 20px;
+        margin-top: -90px;
+    }
+    
+    .corp-title {
+        margin: 3rem 0;
+    }
+}
+
+/* Tablet Pequeno (577px a 767px) */
+@media (max-width: 1000px) {
+    .container {
+        gap: 20px;
+        padding: 15px;
+        min-height: 65vh;
+        margin-left: 0px;
+    }
+    
+    .caixa {
+        width: 100%;
+        max-width: 300px;
+        margin-top: 0;
+    }
+    
+    .corp-title {
+        margin: 2rem 0;
+    }
+    
+    .title {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+    
+    .btnx {
+        margin: 20px 0;
+        text-align: center;
+    }
+}
+
+/* Mobile (até 576px) */
+@media (max-width: 576px) {
+    .container {
+        gap: 15px;
+        padding: 10px;
+    }
+    
+    .caixa {
+        width: 100%;
+        max-width: 280px;
+        padding: 15px;
+    }
+    
+    .corp-title {
+        margin: 1.5rem 0;
+    }
+    
+    .title {
+        font-size: 1.6rem;
+    }
+    
+    .button, .buttona {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    
+    footer {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Ajustes para o menu mobile */
+@media (max-width: 768px) {
+    .menu-desktop {
+        display: none;
+    }
+    
+  
+    
+    header {
+        padding: 0.8rem;
+    }
+    
+    .logo img {
+        max-width: 200px;
+        height: auto;
+    }
+}
+
+/* Desktop (acima de 768px) */
+@media (min-width: 769px) {
+    .menu-mobile {
+        display: none;
+    }
+    
+    .menu-overlay {
+        display: none;
+    }
+}
+
+/* Ajustes para telas muito grandes (acima de 1440px) */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+/* Melhorias de acessibilidade em dispositivos touch */
+@media (hover: none) and (pointer: coarse) {
+    .caixa:hover {
+        transform: none;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .button, .buttona {
+        min-height: 44px; /* Tamanho mínimo para toque */
+    }
+}
+
+/* Orientação paisagem em dispositivos móveis */
+@media (max-width: 767px) and (orientation: landscape) {
+    .container {
+        min-height: 85vh;
+    }
+    
+    .caixa {
+        max-width: 250px;
+    }
+}
+
+/* Ajustes de impressão */
+@media print {
+    .menu-desktop, 
+    .menu-mobile, 
+    .menu-mobile-button, 
+    .btnx,
+    footer {
+        display: none !important;
+    }
+    
+    .container {
+        display: block;
+        min-height: auto;
+    }
+    
+    .caixa {
+        break-inside: avoid;
+        width: 100%;
+        max-width: none;
+        margin: 15px 0;
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+}
   </style>
 
   <script src="teste.js"></script>
@@ -201,7 +411,8 @@ $result = $conexao->query($sql);
             <strong>
             <!-- <p>Livro:</p> -->
 
-            <p class="t">Turma:</p>
+              <div class="turma-caix">
+ <p class="t">Turma:</p>
             </strong><?php echo htmlspecialchars($row['t']); ?>
 
                     <form action="fichamentos-turma.php" method="post">
@@ -214,6 +425,8 @@ $result = $conexao->query($sql);
                         
                     </form>
 
+              </div>
+           
             <?php
 
             

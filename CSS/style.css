@@ -182,10 +182,12 @@ footer {
   text-align: center;
   position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
   z-index: 10;
-  padding: 10px;
-  font-size: 15px;
+  padding: 15px;
+  font-size: 14px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Estilo do link */
@@ -357,14 +359,36 @@ a:hover {
   right: 20px;
   cursor: pointer;
   z-index: 10001;
+  background: rgba(90, 45, 12, 0.9);
+  padding: 8px;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.menu-mobile-button:hover {
+  background: rgba(90, 45, 12, 1);
 }
 
 .menu-mobile-button .bar {
-  width: 30px;
-  height: 4px;
+  width: 25px;
+  height: 3px;
   background-color: #fff;
-  margin: 6px 0;
+  margin: 5px 0;
   transition: 0.4s;
+  border-radius: 2px;
+}
+
+/* Animação do botão hambúrguer */
+.menu-mobile-button.active .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.menu-mobile-button.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-mobile-button.active .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
 }
 
 /* Menu Mobile */
@@ -373,12 +397,15 @@ a:hover {
   position: fixed;
   top: 0;
   right: 0;
-  width: 30%;
-  height: 100%;
+  width: 70%;
+  max-width: 300px;
+  height: 100vh;
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
   z-index: 10000;
-  padding: 20px;
+  padding: 80px 20px 20px;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
 }
 
 .menu-mobile.open {
@@ -387,23 +414,62 @@ a:hover {
 
 .menu-mobile ul {
   list-style: none;
-  margin-top: 60px;
+  margin: 0;
+  padding: 0;
 }
 
 .menu-mobile ul li {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 15px;
 }
 
-
+.menu-mobile ul li:last-child {
+  border-bottom: none;
+}
 
 .menu-mobile ul li a {
   color: white;
-  font-family: 'Playfair Display';
-  font-size: 20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   text-decoration: none;
+  padding: 10px 0;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.menu-mobile ul li a:hover {
+  color: #d3a15c;
+  transform: translateX(5px);
+}
+
+.menu-mobile ul li a svg {
+  transition: fill 0.3s ease;
+}
+
+.menu-mobile ul li a:hover svg {
+  fill: #d3a15c;
+}
+
+/* Overlay */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 9999;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
 }
 
 select{
@@ -424,21 +490,97 @@ select{
 }
 
 
+.btni {
+  position: inherit;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 200;
+  padding: 15px;
+ 
+  display: flex;
+  justify-content: center;
+}
+
+.btni button {
+  font-family: "Koulen";
+  font-size: 18px;
+  color: #fff;
+  background-color: #5a2d0c;
+  border-radius: 25px;
+  border: none;
+  height: 45px;
+  width: 300px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btni button:hover {
+  background-color: #f3ba2b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+
 
 
 /* Responsividade */
+@media (max-width: 1200px) {
+  .container {
+    width: 80%;
+    padding: 2rem;
+  }
+  
+  .menu-desktop ul {
+    gap: 25px;
+  }
+  
+  .menu-desktop li a {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    width: 90%;
+    padding: 1.5rem;
+  }
+  
+  .menu-desktop ul {
+    gap: 20px;
+  }
+  
+  .corp-title .title {
+    font-size: 28px;
+  }
+}
+
 @media (max-width: 768px) {
-
-  /*CARROSSEL*/
-
-
   /*MENU*/
   .menu-mobile-button {
     display: block;
   }
 
   .menu-desktop {
-    display: none;
+    display: none !important;
+  }
+
+  /*HEADER*/
+  header {
+    padding: 15px;
+    position: relative;
+  }
+  
+  .logo img {
+    width: 200px;
+    height: auto;
+  }
+
+  /*CONTAINER*/
+  .container {
+    width: 95%;
+    padding: 1rem;
   }
 
   /*LIVROS*/
@@ -448,54 +590,109 @@ select{
   }
 
   /*TAMANHO TEXTO & BACK*/
+  .corp-title .title {
+    font-size: 24px;
+    padding: 15px 20px;
+  }
+  
   .theme-carrossel {
     font-size: 14px;
   }
 
+  /*FOOTER*/
   footer {
-    font-size: 10px;
+    font-size: 12px;
+    position: relative;
+    margin-top: 2rem;
   }
 
+  /*FORMS*/
   .login-container,
   .cadastro-container {
-    width: 40vh;
+    width: 90%;
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+  }
+
+  .fichar-container {
+    width: 95%;
+    max-width: 600px;
+    margin: 2rem auto;
+  }
+
+  .fichar-turma-container {
+    width: 90%;
+    max-width: 400px;
+    margin: 2rem auto;
   }
 
   .box {
-    margin: 24px 0;
+    margin: 20px 0;
   }
 
-  .box input {
-    height: 30px;
-    width: 35vh;
+  .inputs {
+    width: 100%;
+    height: 45px;
+    font-size: 16px;
   }
 
   .btn {
-    padding: 10px;
+    padding: 15px;
   }
 
-  .btn button {
-    margin-top: -5px;
-    font-size: 14px;
-    height: 25px;
-    width: 17vh;
+  .btn button,
+  .btn input,
+  .btnc input {
+    font-size: 16px;
+    height: 45px;
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  /*MENU MOBILE*/
+  .menu-mobile {
+    width: 70%;
+  }
+  
+  .menu-mobile ul li a {
+    font-size: 18px;
+    padding: 10px 0;
   }
 }
 
 @media screen and (max-width: 540px) {
-
-  .logo {
+  .logo img {
     width: 150px;
-    height: 5px;
-    margin-bottom: 20px;
+    height: auto;
   }
 
-  nav ul {
-    gap: 15px;
+  .corp-title .title {
+    font-size: 20px;
+    padding: 10px 15px;
+  }
+  
+  .menu-mobile {
+    width: 80%;
+  }
+  
+  .menu-mobile ul li a {
+    font-size: 16px;
+  }
+  
+  .container {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo img {
+    width: 120px;
   }
 
-  .title {
-    font-size: 24px;
+  .corp-title .title {
+    font-size: 18px;
+    padding: 8px 12px;
   }
 
   .theme-carrossel {
@@ -503,60 +700,56 @@ select{
   }
 
   .menu-mobile ul li a {
-    font-size: 15px;
+    font-size: 14px;
   }
-
-  .bola {
-    display: none;
-  }
-
-}
-
-@media (max-width: 480px) {
-
-  .logo {
-    font-size: 10px;
-  }
-
-  nav ul {
-    gap: 10px;
-  }
-
-  .title {
-    font-size: 18px;
-  }
-
-  .theme-carrossel {
-    font-size: 8px;
-  }
-
-  .menu-mobile ul li a {
-    font-size: 13px;
-  }
-
 
   .login-container,
   .cadastro-container {
-    width: 33vh;
+    width: 95%;
+    padding: 1rem;
   }
 
-  .box {
-    margin: 16px 0;
+  .fichar-container {
+    width: 98%;
+    padding: 1rem;
   }
 
-  .box input {
-    height: 25px;
-    width: 28vh;
+  .inputs {
+    height: 40px;
+    font-size: 14px;
   }
 
-  .btn {
-    padding: 10px;
+  .btn button,
+  .btn input,
+  .btnc input {
+    font-size: 14px;
+    height: 40px;
   }
+  
+  .menu-mobile {
+    width: 85%;
+  }
+}
 
-  .btn button {
-    margin-top: -10px;
-    font-size: 10px;
-    height: 20px;
-    width: 15vh;
+@media (max-width: 320px) {
+  .logo img {
+    width: 100px;
+  }
+  
+  .corp-title .title {
+    font-size: 16px;
+    padding: 6px 10px;
+  }
+  
+  .container {
+    padding: 0.25rem;
+  }
+  
+  .menu-mobile {
+    width: 90%;
+  }
+  
+  .menu-mobile ul li a {
+    font-size: 13px;
   }
 }

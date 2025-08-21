@@ -4,46 +4,71 @@
   padding: 0%;
 }
 
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding-bottom: 100px; /* Espaço para o footer fixo */
+}
 
 .turmas-lista {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 40px;
+  padding: 20px;
+  min-height: 60vh;
 }
 
 .turma-item {
   background-color: #FFF;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 250px;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  width: 280px;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.turma-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .turma-item h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 22px;
+  margin-bottom: 15px;
   color: #333;
+  font-weight: 600;
 }
 
 .turma-item a {
   color: #FF6347;
   font-weight: bold;
   text-decoration: none;
+  font-size: 16px;
 }
 
 .turma-item a:hover {
   text-decoration: underline;
+  color: #e55347;
 }
 
-
 .btnx {
- position: fixed;
+  position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
   z-index: 200;
-  padding: 50px;
+  padding: 15px;
+  background: linear-gradient(to top, #5a2d0c 0%,#5a2d0c 100%);
+  display: flex;
+  justify-content: center;
 }
 
 .btnx button {
@@ -51,13 +76,68 @@
   font-size: 18px;
   color: #fff;
   background-color: #e9b124;
-  border-radius: 20px;
+  border-radius: 25px;
   border: none;
-  height: 30px;
-  width: 20vh;
-  transition: .2s;
+  height: 45px;
+  width: 200px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btnx button:hover {
   background-color: #f3ba2b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .turmas-lista {
+    gap: 60px;
+    padding: 35px 40px;
+  }
+  
+  .turma-item {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .btnx {
+    padding: 10px;
+  }
+  
+  .btnx button {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .container{
+    margin-left: -6px;
+  }
+}
+
+@media (max-width: 608px) {
+  .turmas-lista {
+    gap: 60px;
+    padding: 35px 40px;
+  }
+  
+  .turma-item {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .btnx {
+    padding: 10px;
+  }
+  
+  .btnx button {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .container{
+    margin-left: -6px;
+  }
 }
