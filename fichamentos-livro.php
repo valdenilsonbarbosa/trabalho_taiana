@@ -42,12 +42,15 @@ $categoria_id = $_POST['categoria_id'];
   <title>PROJETO LITERATURA</title>
 
   <style>
+
+    .menu-desktop{
+      gap: 1rem;
+    }
+
     .container {
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
-
-
     }
 
     .caixa {
@@ -62,8 +65,6 @@ $categoria_id = $_POST['categoria_id'];
       margin-top: 2rem;
       border-radius: 8px;
       background-color: #FFF;
-
-
     }
 
 
@@ -72,7 +73,7 @@ $categoria_id = $_POST['categoria_id'];
       margin-top: 20px;
       border-collapse: collapse;
       width: 60%;
-
+      background-color: #FFF;
       margin: 20px auto;
     }
 
