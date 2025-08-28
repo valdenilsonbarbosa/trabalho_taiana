@@ -234,7 +234,7 @@ $categoria_id = $_POST['categoria_id'];
 
 
         echo "<table border='1'>";
-        echo "<tr><th>Nome</th><th>Capítulos</th></tr>";
+        echo "<tr><th>Nome</th><th>Pareceres</th></tr>";
 
         foreach ($capitulos_por_aluno as $nome => $capitulos) {
           echo "<tr>";

@@ -210,7 +210,7 @@ while ($row = $result->fetch_assoc()) {
   </header>
 
     <div class="corp-title">
-        <h2>Fichamentos - Turma <?php echo htmlspecialchars($turma_nome); ?> - Livro <?php echo htmlspecialchars($titulo); ?></h2>
+        <h2>Pareceres - Turma <?php echo htmlspecialchars($turma_nome); ?> - Livro <?php echo htmlspecialchars($titulo); ?></h2>
     </div>
 
     <?php if (!empty($capitulos_por_aluno)): ?>

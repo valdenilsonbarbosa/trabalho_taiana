@@ -122,7 +122,7 @@ if (isset($_GET['id'])) {
                   </form>";
         } else {
             // Exibição do fichamento
-            echo "<div class='texto-fichamento'><strong>Fichamento:</strong><br>".htmlspecialchars($livro['fichamento'])."</div>";
+            echo "<div class='texto-fichamento'><strong>Parecer:</strong><br>".htmlspecialchars($livro['fichamento'])."</div>";
             echo "<form method='POST' class='botoes-acoes' onsubmit='return confirm(\"Tem certeza?\")'>
                     <input type='hidden' name='id' value='{$livro['id']}'>
                     <button type='button' class='btn-editar' onclick=\"window.location.href='?id={$livro['id']}&edit=1'\">Editar</button>

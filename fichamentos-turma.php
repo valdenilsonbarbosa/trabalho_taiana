@@ -147,7 +147,7 @@ $result = $conexao->query($sql);
             </div>
 
             <div class="btn">
-                <button type="submit">Ver Fichamentos</button>
+                <button type="submit">Ver Pareceres</button>
             </div>
         </form>
     </div>
