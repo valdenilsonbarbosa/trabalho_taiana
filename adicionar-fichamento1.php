@@ -35,7 +35,7 @@
       flex-direction: column;
       align-items: center;
       margin: 40px auto;
-      max-width: 900px;
+      max-width: 700px;
       padding: 30px;
       background: #fdf6e3;
       border-radius: 16px;
@@ -83,7 +83,7 @@
     }
 
     .tituloficha input {
-      width: 100%;
+      width: 60%;
       max-width: 500px;
       padding: 12px 14px;
       border: 2px solid #e0c097;
@@ -104,7 +104,7 @@
     /* Responsividade */
     @media (max-width: 768px) {
       .fichar-container {
-        padding: 20px;
+        padding: 5px;
       }
 
       .login-text h2 {
