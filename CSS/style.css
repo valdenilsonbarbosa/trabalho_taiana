@@ -355,15 +355,16 @@ a:hover {
 .menu-mobile-button {
   display: none;
   position: absolute; /* antes era fixed */
-  top:3px;
+  top: 10px;
   right: 20px;
   cursor: pointer;
   z-index: 10001;
   background: rgba(90, 45, 12, 0.9);
-  padding: 0px;
+  padding: 8px;
   border-radius: 5px;
   transition: background 0.3s ease;
 }
+
 
 
 .menu-mobile-button:hover {
@@ -560,6 +561,7 @@ select{
 @media (max-width: 768px) {
   /*MENU*/
   .menu-mobile-button {
+    
     display: block;
   }
 
@@ -663,6 +665,20 @@ select{
 }
 
 @media screen and (max-width: 540px) {
+
+  .menu-mobile-button {
+    
+    position: absolute; /* antes era fixed */
+    top: 1px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 10001;
+    background: rgba(90, 45, 12, 0.9);
+    padding: 8px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+
   .logo img {
     width: 150px;
     height: auto;
