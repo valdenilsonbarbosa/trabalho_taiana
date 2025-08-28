@@ -18,7 +18,7 @@ $result = $conexao->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escolher Livro</title>
-    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="CSS/style.css"/>
     
 </head>
 
@@ -29,7 +29,16 @@ $result = $conexao->query($sql);
     display: flex;
     justify-content: center;
     align-items: center;
+    
   }
+
+  .corp-title .title {
+      font-family: "Playfair Display", sans-serif;
+      font-size: 1.6rem;
+      color: white;
+      
+    }
+  
 </style>
 <header>
   <div class="logo">
@@ -125,11 +134,9 @@ $result = $conexao->query($sql);
   </nav>
   </header>
 
-    <div class="corp-title">
-        <div class="title">
-            <h2>Escolha o Livro</h2>
-        </div>
-    </div>
+  <div class="corp-title">
+    <h2 class="title">Escolha o livro</h2>
+  </div>
 
     <div class="fichar-turma-container">
         <form action="fichamentos-turma-livro.php" method="post">
