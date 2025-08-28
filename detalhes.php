@@ -49,7 +49,6 @@ if (isset($_POST['acao']) && $_POST['acao'] === 'editar' && isset($_POST['id']) 
 .caixa {
     max-width: 800px;
     min-height: 400px; /* sempre grande */
-    margin: 50px auto;
     padding: 20px;
     background: #ffffff;
     border-radius: 10px;
@@ -57,7 +56,10 @@ if (isset($_POST['acao']) && $_POST['acao'] === 'editar' && isset($_POST['id']) 
     font-family: "Merriweather", serif;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    background-color: #ffe8c0;
+    margin: 0 auto;
+
 }
 .texto-fichamento {
     text-align: justify;
@@ -99,7 +101,7 @@ textarea {
     height: 200px;
     padding: 10px;
     font-size: 16px;
-    margin-bottom: 15px;
+    margin-top: 2rem;
     resize: none;
 }
 </style>
