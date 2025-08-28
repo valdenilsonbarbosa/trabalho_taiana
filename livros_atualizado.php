@@ -4,7 +4,13 @@ session_start();
 
 include_once('config.php');
 
-
+/* 
+if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
+  unset($_SESSION['email']);
+  unset($_SESSION['senha']);
+  // header('Location: login.php');
+}
+$logado = $_SESSION['email']; */
 
 $sql = "SELECT * FROM livro";
 
@@ -125,6 +131,17 @@ $result = $conexao->query($sql);
       padding: 15px;
       z-index: 10;
       box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .corp-title {
+      text-align: center;
+      margin: 6rem 0 2rem 0;
+    }
+
+    .corp-title .title {
+      font-family: "Playfair Display", sans-serif;
+      font-size: 1.6rem;
+      color: white;
     }
   </style>
 
