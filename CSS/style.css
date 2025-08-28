@@ -209,7 +209,7 @@ a:hover {
 .login-container,
 .cadastro-container {
   align-items: center;
-  background-color: #F5EAC4;
+  background-color: #fdf6e3;
   filter: opacity(10px);
   border-radius: 1.2rem;
   box-shadow: rgb(117, 117, 117) 4px 4px 20px;
@@ -224,7 +224,7 @@ a:hover {
 
 .fichar-container{
   align-items: center;
-  background-color: #F5EAC4;
+  background-color: #fdf6e3;
   filter: opacity(10px);
   border-radius: 1.2rem;
   box-shadow: rgb(117, 117, 117) 4px 4px 20px;

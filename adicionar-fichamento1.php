@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parecer</title>
 
-  <!-- Fonte Google (igual ao que você já usa no projeto) -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=PT+Sans&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parecer</title>
+
+    <!-- Fonte Google (igual ao que você já usa no projeto) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=PT+Sans&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=Koulen&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
@@ -18,113 +20,115 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
     <link rel="stylesheet" href="CSS/style.css">
-    
 
-  <style>
+
+    <style>
     body {
-      margin: 0;
-      font-family: 'PT Sans', sans-serif;
-      background: url(IMG/fundo-litera.png); /* fundo de exemplo, pode trocar */
-      background-size: cover;
-      background-attachment: fixed;
+        margin: 0;
+        font-family: 'PT Sans', sans-serif;
+        background: url(IMG/fundo-litera.png);
+        /* fundo de exemplo, pode trocar */
+        background-size: cover;
+        background-attachment: fixed;
     }
 
     /* Container geral */
     .fichar-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 40px auto;
-      max-width: 700px;
-      padding: 30px;
-      background: #fdf6e3;
-      border-radius: 16px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 40px auto;
+        max-width: 700px;
+        padding: 30px;
+        background: #fdf6e3;
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
     }
 
     /* Título */
     .login-text h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      color: white;
-      margin-bottom: 20px;
-      text-align: center;
-      background: #5a2d0c;
-      padding: 10px 25px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        font-family: 'Playfair Display', serif;
+        font-size: 2rem;
+        color: white;
+        margin-bottom: 20px;
+        text-align: center;
+        background: #5a2d0c;
+        padding: 10px 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     }
 
     /* Textarea */
     #Fichamento {
-      width: 90%;
-      height: 350px;
-      border: 2px solid #e0c097;
-      border-radius: 12px;
-      padding: 15px;
-      font-size: 1rem;
-      font-family: 'PT Sans', sans-serif;
-      background: #fff;
-      box-shadow: inset 0 2px 6px rgba(0,0,0,0.05);
-      transition: border 0.2s ease;
+        width: 90%;
+        height: 350px;
+        border: 2px solid #e0c097;
+        border-radius: 12px;
+        padding: 15px;
+        font-size: 1rem;
+        font-family: 'PT Sans', sans-serif;
+        background: #fff;
+        box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.05);
+        transition: border 0.2s ease;
     }
 
     #Fichamento:focus {
-      border: 2px solid #c17f59;
-      outline: none;
+        border: 2px solid #c17f59;
+        outline: none;
     }
 
     /* Input título */
     .tituloficha {
-      width: 100%;
-      margin: 20px 0;
-      display: flex;
-      justify-content: center;
+        width: 100%;
+        margin: 20px 0;
+        display: flex;
+        justify-content: center;
     }
 
     .tituloficha input {
-      width: 60%;
-      max-width: 500px;
-      padding: 12px 14px;
-      border: 2px solid #e0c097;
-      border-radius: 12px;
-      font-size: 1rem;
-      font-family: 'PT Sans', sans-serif;
-      transition: 0.2s ease;
+        width: 60%;
+        max-width: 500px;
+        padding: 12px 14px;
+        border: 2px solid #e0c097;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-family: 'PT Sans', sans-serif;
+        transition: 0.2s ease;
     }
 
     .tituloficha input:focus {
-      border: 2px solid #c17f59;
-      outline: none;
+        border: 2px solid #c17f59;
+        outline: none;
     }
 
     /* Botão */
-    
+
 
     /* Responsividade */
     @media (max-width: 768px) {
-      .fichar-container {
-        padding: 5px;
-      }
+        .fichar-container {
+            padding: 5px;
+        }
 
-      .login-text h2 {
-        font-size: 1.6rem;
-      }
+        .login-text h2 {
+            font-size: 1.6rem;
+        }
 
-      #Fichamento {
-        height: 250px;
-      }
+        #Fichamento {
+            height: 250px;
+        }
 
-      .btn input {
-        width: 100%;
-        padding: 12px;
-      }
+        .btn input {
+            width: 100%;
+            padding: 12px;
+        }
     }
-  </style>
+    </style>
 </head>
+
 <body>
 
-<header>
+    <header>
         <div class="logo">
             <img src="IMG/logo-litera-Photoroom.png" alt="" width="250px" height="30px">
         </div>
@@ -221,21 +225,26 @@
     </div>
     </header>
 
-  <div class="fichar-container">
+   
+   <!-- FORMULÁRIO FUNCIONAL -->
+   <form action="salvar1.php" method="POST" class="fichar-container">
     <div class="login-text">
       <h2>Parecer</h2>
     </div>
 
-    <textarea id="Fichamento" placeholder="Escreva aqui seu parecer..."></textarea>
+    <textarea id="Fichamento" name="fichamento" placeholder="Escreva aqui seu parecer..."></textarea>
 
-    <div class="tituloficha">
-      <input type="text" placeholder="Insira o título do seu parecer">
-    </div>
+    <div class="tituloficha"> <input name="capitulo" type="text" placeholder=" Insira o titulo do fichamento" class="inputex" require /> </div>
 
     <div class="btn">
-      <input type="submit" value="Cadastrar">
+      <input type="submit" value="CADASTRAR">
     </div>
+  </form>
+
   </div>
+    
+
 
 </body>
+
 </html>
