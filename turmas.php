@@ -431,13 +431,6 @@ $result = $conexao->query($sql);
         </a>
     </div>
 
-  <footer>
-    <p>
-      Projeto escolar de fichamentos - Todos os direitos reservados © 2025
-    </p>
-  </footer>
-
-
 </body>
 
 </html>
