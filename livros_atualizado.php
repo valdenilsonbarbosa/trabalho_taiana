@@ -1,24 +1,29 @@
 <?php
-
 session_start();
-
 include_once('config.php');
 
-/* 
-if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
-  unset($_SESSION['email']);
-  unset($_SESSION['senha']);
-  // header('Location: login.php');
+// Se o usuário NÃO estiver logado, consideramos como "convidado"
+if (!isset($_SESSION['email']) || !isset($_SESSION['senha'])) {
+    $_SESSION['tipo'] = 'convidado'; // define tipo visitante
+} else {
+    $logado = $_SESSION['email'];
+    $senha = $_SESSION['senha'];
+
+    // Verifica se é o "professor"
+    if ($logado === 'gui@gmail.com' && $senha === '123456') {
+        $_SESSION['tipo'] = 'professor';
+    } else {
+        $_SESSION['tipo'] = 'aluno';
+    }
 }
-$logado = $_SESSION['email']; */
 
 $sql = "SELECT * FROM livro";
-
 $result = $conexao->query($sql);
-
-
-
 ?>
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -294,10 +299,13 @@ $result = $conexao->query($sql);
 
   </div>
 
+  
 
   <div class="btnx">
-    <a href="cadastro-livro.php"><button class="button" type="submit">Cadastrar livro</button>
-    </a>
+  <?php if ($_SESSION['tipo'] === 'professor'): ?>
+    <a href="cadastro-livro.php"><button class="button" type="submit">Cadastrar livro</button></a>
+<?php endif; ?>
+    
   </div>
 
   <footer>

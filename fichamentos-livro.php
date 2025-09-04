@@ -3,13 +3,13 @@
 session_start();
 
 include_once('config.php');
-/* 
+
 if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
   unset($_SESSION['email']);
   unset($_SESSION['senha']);
   // header('Location: login.php');
 }
-$logado = $_SESSION['email']; */
+$logado = $_SESSION['email']; 
 
 $sql = "SELECT * FROM fichamento";
 
@@ -218,7 +218,7 @@ $categoria_id = $_POST['categoria_id'];
 
       if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-          if ($row["titulo"] == $categoria_id) {
+          
             $nome = $row['nome'];
             $capitulo = [
               'id' => $row['id'],
@@ -230,7 +230,7 @@ $categoria_id = $_POST['categoria_id'];
               $capitulos_por_aluno[$nome] = [];
             }
             $capitulos_por_aluno[$nome][] = $capitulo;
-          }
+          
         }
 
 
