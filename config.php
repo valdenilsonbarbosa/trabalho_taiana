@@ -2,7 +2,7 @@
 
 $dbHost = '127.0.0.1:3306';
 $dbUsername = 'root';
-$dbPassword = 'senai.123';
+$dbPassword = '';
 $dbName = 'ptt';
 
 $conexao = new mysqli($dbHost,$dbUsername,$dbPassword,$dbName);

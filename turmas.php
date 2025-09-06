@@ -2,17 +2,28 @@
 session_start();
 include_once('config.php');
 
-/* 
-if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
-  unset($_SESSION['email']);
-  unset($_SESSION['senha']);
-  // header('Location: login.php');
+// Se o usuário NÃO estiver logado, consideramos como "convidado"
+if (!isset($_SESSION['email']) || !isset($_SESSION['senha'])) {
+    $_SESSION['tipo'] = 'convidado'; // define tipo visitante
+} else {
+    $logado = $_SESSION['email'];
+    $senha = $_SESSION['senha'];
+
+    // Verifica se é o "professor"
+    if (
+    ($logado === 'gui@gmail.com' && $senha === '123456') ||
+    ($logado === 'elias@gmail.com' && $senha === '123456')
+) {
+    $_SESSION['tipo'] = 'professor';
+} else {
+    $_SESSION['tipo'] = 'aluno';
 }
-$logado = $_SESSION['email']; */
+}
 
 $sql = "SELECT * FROM turma";
 $result = $conexao->query($sql);
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -61,12 +72,22 @@ $result = $conexao->query($sql);
 
 
     /* --- TITULO --- */
-    .corp-title {
+    .corp-titlei {
       text-align: center;
       margin: 3rem 0 2rem 0;
+      
+  display: grid;
+  justify-content: center;
     }
 
-    .corp-title .title {
+    .corp-titlei .titlei{
+      margin-top: 70px;
+      font-family: "Playfair Display", sans-serif;
+  letter-spacing: 2px;
+  color: #fff;
+  background-color: #5a2d0c;
+  box-shadow: black 2px 2px 10px;
+  padding: 2px 10px;
       font-family: "Playfair Display", sans-serif;
       font-size: 1.6rem;
       color: white;
@@ -169,16 +190,16 @@ $result = $conexao->query($sql);
 
     @media (max-width:5000px){
 
-      .corp-title{
+      .corp-titlei{
       text-align: center;
-      margin: -35rem 0 2rem 0;
+      margin: -30rem 0 2rem 0;
 
     }
     }
 
     @media (max-width: 1200px) {
      
-      .corp-title{
+      .corp-titlei{
       text-align: center;
       margin: -30rem 0 2rem 0;
       }
@@ -196,8 +217,9 @@ $result = $conexao->query($sql);
 
    @media (max-width: 990px) {
      
-    .corp-title{
+    .corp-titlei{
       text-align: center;
+      margin-top: 20px;
       margin: -30rem 0 2rem 0;
 
     }
@@ -214,7 +236,7 @@ $result = $conexao->query($sql);
 
     @media (max-width: 768px) {
      
-      .corp-title{
+      .corp-titlei{
       text-align: center;
       margin: 3rem 0 2rem 0;
 
@@ -231,7 +253,7 @@ $result = $conexao->query($sql);
     }
 
     @media (max-width: 576px) {
-      .corp-title .title {
+      .corp-titlei .titlei {
         font-size: 1.6rem;
       }
 
@@ -250,7 +272,7 @@ $result = $conexao->query($sql);
     }
 
     @media (max-width: 446px) {
-      .corp-title .title {
+      .corp-titlei .titlei {
         font-size: 1.6rem;
       }
 
@@ -288,13 +310,13 @@ $result = $conexao->query($sql);
     <!-- Menu Mobile -->
     <div class="menu-mobile">
         <ul>
-            <li><a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+            <li><a href="index.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                         class="bi bi-house-fill" viewBox="0 0 16 16">
                         <path
                             d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z" />
                         <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z" />
                     </svg>Home</a></li>
-            <li><a href="livros.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+            <li><a href="livros_atualizado.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                         class="bi bi-book-half" viewBox="0 0 16 16">
                         <path
                             d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783" />
@@ -328,7 +350,7 @@ $result = $conexao->query($sql);
         <nav>
             <ul>
                 <li>
-                    <a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                    <a href="index.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                             fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
                             <path
                                 d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z" />
@@ -357,12 +379,40 @@ $result = $conexao->query($sql);
                 </li>
                 <!--TURMAS ICON-->
 
-                <li>
+                <?php if (isset($_SESSION['email'])): ?>
+    <!-- Se estiver logado, mostra a porta 🚪 -->
+    <li>
+          <a href="logout.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+              class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z" />
+              <path fill-rule="evenodd"
+                d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
+            </svg></a>
+        </li>
+      <?php else: ?>
+    <!-- Se não estiver logado, mostra o login -->
+       <?php if (isset($_SESSION['email'])): ?>
+    <!-- Se estiver logado, mostra a porta 🚪 -->
+    <li>
+          <a href="logout.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+              class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z" />
+              <path fill-rule="evenodd"
+                d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
+            </svg></a>
+        </li>
+      <?php else: ?>
+    <!-- Se não estiver logado, mostra o login -->
+    <li>
                     <a href="login.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                             fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
                         </svg></a>
                 </li>
+      <?php endif; ?>
+      <?php endif; ?>
                 <!--LOGIN ICON-->
             </ul>
         </nav>
@@ -370,8 +420,8 @@ $result = $conexao->query($sql);
     </header>
 
   <!-- Título -->
-  <div class="corp-title">
-    <h2 class="title">Turmas Cadastradas</h2>
+  <div class="corp-titlei">
+    <h2 class="titlei">Turmas Cadastradas</h2>
   </div>
 
   <!-- Lista de turmas -->
@@ -387,11 +437,16 @@ $result = $conexao->query($sql);
     <?php endwhile; ?>
   </div>
 
-  <!-- Botão fixo -->
-  <div class="btnx">
+
+   <?php if ($_SESSION['tipo'] === 'professor'): ?>
+    <div class="btnx">
     <a href="cadastro-turma.php"><button class="button">Cadastrar turma</button></a>
   </div>
+<?php endif; ?>
+    
+  <!-- Botão fixo -->
+  
 
-  <footer>© 2025 - Projeto Literatura</footer>
+  <footer>Projeto escolar de fichamentos - Todos os direitos reservados © 2025</footer>
 </body>
 </html>
