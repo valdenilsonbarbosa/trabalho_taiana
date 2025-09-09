@@ -198,6 +198,33 @@ textarea {
     background:#fff7e6;
 }
 
+/* ================= RESPONSIVIDADE ================= */
+
+/* ================= RESPONSIVIDADE CORRETA ================= */
+
+/* Tablets e telas médias */
+
+/* ================= RESPONSIVIDADE ================= */
+@media (max-width: 1024px) {
+    .caixa { max-width: 80%; padding: 20px; max-width: 900px;
+    min-height: 1000px; }
+    .titulo { font-size: 26px; }
+    .subtitulo { font-size: 20px; }
+    .texto-fichamento, textarea { font-size: 16px; min-height: 850px; padding: 15px; }
+}
+
+@media (max-width: 768px) {
+    .caixa { max-width: 80%; padding: 15px;  max-width: 900px;
+    min-height: 900px; }
+    .titulo { font-size: 24px; }
+    .subtitulo { font-size: 18px; }
+    .texto-fichamento, textarea { font-size: 15px; min-height: 600px; padding: 12px; max-width: 350px}
+    .botoes-acoes { flex-direction: column; gap: 10px; }
+    .botoes-acoes button, .botoes-acoes a { width: 100%; }
+}
+
+
+
 
 
 </style>
@@ -226,7 +253,7 @@ textarea {
                             d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z" />
                         <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z" />
                     </svg>Home</a></li>
-            <li><a href="livros.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+            <li><a href="livros_atualizado.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                         class="bi bi-book-half" viewBox="0 0 16 16">
                         <path
                             d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783" />
@@ -349,7 +376,10 @@ if (isset($_GET['id'])) {
         // edição
         if (isset($_GET['edit'])) {
             echo "<form method='POST'>
-                    <textarea name='novo_fichamento' '>".htmlspecialchars($livro['fichamento'])."</textarea>
+            
+            <textarea name='novo_fichamento' '>".htmlspecialchars($livro['fichamento'])."</textarea>
+          
+                    
                     <input type='hidden' name='id' value='{$livro['id']}'>
                     <input type='hidden' name='acao' value='editar'>
                     <div class='botoes-acoes'>

@@ -3,13 +3,25 @@
 session_start();
 
 include_once('config.php');
+if (!isset($_SESSION['email']) || !isset($_SESSION['senha'])) {
+  $_SESSION['tipo'] = 'convidado'; // define tipo visitante
+} else {
+  $logado = $_SESSION['email'];
+  $senha = $_SESSION['senha'];
 
-if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
-  unset($_SESSION['email']);
-  unset($_SESSION['senha']);
-  // header('Location: login.php');
+  // Verifica se é o "professor"
+if (
+  ($logado === 'gui@gmail.com' && $senha === '123456') ||
+  ($logado === 'elias@gmail.com' && $senha === '123456')
+) {
+  $_SESSION['tipo'] = 'professor';
+} else {
+  $_SESSION['tipo'] = 'aluno';
 }
-$logado = $_SESSION['email']; 
+
+
+}
+
 
 $sql = "SELECT * FROM fichamento";
 
@@ -48,12 +60,14 @@ $categoria_id = $_POST['categoria_id'];
     }
 
     .container {
+      
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
     }
 
     .caixa {
+      
       border: 1px solid #ccc;
       padding: 20px;
       width: 200px;
@@ -69,6 +83,7 @@ $categoria_id = $_POST['categoria_id'];
 
 
     table {
+      font-size: 15px;
       text-align: center;
       margin-top: 20px;
       border-collapse: collapse;
@@ -101,7 +116,8 @@ $categoria_id = $_POST['categoria_id'];
 
 <body>
   <!-- Cabeçalho do site -->
-  <header>
+  
+ <header>
         <div class="logo">
             <img src="IMG/logo-litera-Photoroom.png" alt="" width="250px" height="30px">
         </div>
@@ -137,11 +153,27 @@ $categoria_id = $_POST['categoria_id'];
                     </svg>Turmas</a>
             </li>
 
-            <li><a href="login.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                        class="bi bi-person-fill" viewBox="0 0 16 16">
-                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                    </svg>Login</a></li>
-
+            <?php if (isset($_SESSION['email'])): ?>
+    <!-- Se estiver logado, mostra a porta 🚪 -->
+    <li>
+          <a href="logout.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+              class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z" />
+              <path fill-rule="evenodd"
+                d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
+            </svg>Sair</a>
+        </li>
+    
+      <?php else: ?>
+    <!-- Se não estiver logado, mostra o login -->
+    <li>
+                    <a href="login.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                        </svg>Login</a>
+                </li>
+      <?php endif; ?>
         </ul>
     </div>
 
@@ -186,7 +218,7 @@ $categoria_id = $_POST['categoria_id'];
                 </li>
                 <!--TURMAS ICON-->
 
-                   <?php if (isset($_SESSION['email'])): ?>
+               <?php if (isset($_SESSION['email'])): ?>
     <!-- Se estiver logado, mostra a porta 🚪 -->
     <li>
           <a href="logout.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -197,6 +229,7 @@ $categoria_id = $_POST['categoria_id'];
                 d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
             </svg></a>
         </li>
+    
       <?php else: ?>
     <!-- Se não estiver logado, mostra o login -->
     <li>
@@ -206,7 +239,6 @@ $categoria_id = $_POST['categoria_id'];
                         </svg></a>
                 </li>
       <?php endif; ?>
-                <!--LOGIN ICON-->
             </ul>
         </nav>
     </div>
