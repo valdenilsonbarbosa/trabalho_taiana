@@ -14,8 +14,7 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['senha'])) {
 
     // Verifica se é o "professor"
     if (
-    ($logado === 'gui@gmail.com' && $senha === '123456') ||
-    ($logado === 'elias@gmail.com' && $senha === '123456')
+    ($logado === 'taianamenezes@docente.com' && $senha === 'amomeusalunos123') 
 ) {
     $_SESSION['tipo'] = 'professor';
 } else {
