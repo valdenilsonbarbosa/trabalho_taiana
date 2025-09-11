@@ -651,20 +651,6 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['senha'])) {
 
             <div class="card">
                 <div class="livro-img-pdf">
-                    <img src="IMG/grande-sertao.jpg" alt="Grande Sertão: Veredas">
-                </div>
-
-                <div class="card-content">
-                    <h2>Grande Sertão: Veredas</h2>
-                    <p>João Guimarães Rosa - Romance épico sobre o sertão brasileiro.</p>
-                    <a href="https://www.ileel.ufu.br/lexicoSertanista/arquivos/43b0ce78-34a9-461d-b8c5-55ee0b0e5528_Grande%20Sert%C3%A3o%20Veredas.pdf"
-                        target="_blank">Ler livro</a>
-                    <a href="https://pt.wikipedia.org/wiki/Guimar%C3%A3es_Rosa" target="_blank">Biografia</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="livro-img-pdf">
                     <img src="IMG/iaia-garcia-7.jpg" alt="Iaiá Garcia">
                 </div>
 
