@@ -199,7 +199,7 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['senha'])) {
                     <!-- Slide-start -->
                     <div class="swiper-slide tranding-slide">
                         <div class="tranding-slide-img">
-                            <a href="http://www.dominiopublico.gov.br/download/texto/ua000194.pdf" target="_blank"
+                            <a href="https://dn721608.ca.archive.org/0/items/domCasmurroMachado/domCasmurro.pdf" target="_blank"
                                 rel="noopener noreferrer"><img class="book-image" src="IMG/dom-casmurro.jpg"
                                     alt="Loading"></a>
                         </div>
@@ -237,7 +237,7 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['senha'])) {
                     <!-- Slide-start -->
                     <div class="swiper-slide tranding-slide">
                         <div class="tranding-slide-img">
-                            <a href="https://www.ileel.ufu.br/lexicoSertanista/arquivos/43b0ce78-34a9-461d-b8c5-55ee0b0e5528_Grande%20Sert%C3%A3o%20Veredas.pdf"
+                            <a href="https://dn721600.ca.archive.org/0/items/joao-guimaraes-rosa-ficcao-com-joao-guimaraes-rosa/Grande%20Sertao_%20Veredas%20-%20Joao%20Guimaraes%20Rosa.pdf"
                                 target="_blank" rel="noopener noreferrer"><img src="IMG/grande-sertao.jpg"
                                     alt="Loading"></a>
                         </div>
@@ -256,7 +256,7 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['senha'])) {
                     <!-- Slide-start -->
                     <div class="swiper-slide tranding-slide">
                         <div class="tranding-slide-img">
-                            <a href="https://site-antigo-2025.uffs.edu.br/institucional/reitoria/editora-uffs/repositorio-de-e-books/memorias-postuma-de-bras-cubas-pdf"
+                            <a href="https://ia801703.us.archive.org/11/items/memoriasPostumasBrasCubas/memoriasBras.pdf"
                                 target="_blank" rel="noopener noreferrer"><img src="IMG/memorias-postumas.jpg"
                                     alt="Loading"></a>
                         </div>
@@ -644,7 +644,7 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['senha'])) {
                 <div class="card-content">
                     <h2>Dom Casmurro</h2>
                     <p>Machado de Assis - Um dos maiores clássicos da literatura brasileira.</p>
-                    <a href="http://www.dominiopublico.gov.br/download/texto/ua000194.pdf" target="_blank">Ler livro</a>
+                    <a href="https://dn721608.ca.archive.org/0/items/domCasmurroMachado/domCasmurro.pdf" target="_blank">Ler livro</a>
                     <a href="https://pt.wikipedia.org/wiki/Machado_de_Assis" target="_blank">Biografia</a>
                 </div>
             </div>
@@ -696,7 +696,7 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['senha'])) {
                 <div class="card-content">
                     <h2>Memórias de Um Sargento de Milícias</h2>
                     <p>Manuel Antônio de Almeida – Narrativa picaresca do Brasil urbano do século XIX.</p>
-                    <a href="http://www.dominiopublico.gov.br/download/texto/ua000235.pdf" target="_blank">Ler livro</a>
+                    <a href="https://ia801703.us.archive.org/11/items/memoriasPostumasBrasCubas/memoriasBras.pdf" target="_blank">Ler livro</a>
                     <a href="https://pt.wikipedia.org/wiki/Manuel_Ant%C3%B4nio_de_Almeida" target="_blank">Biografia</a>
                 </div>
             </div>
