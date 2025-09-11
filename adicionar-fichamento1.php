@@ -61,13 +61,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_envio'])) {
         $turma_int = is_numeric($turma) ? intval($turma) : 0;
 
         $stmt = $conexao->prepare("
-            INSERT INTO fichamento (email_aluno, nome, capitulo, turma, fichamento)
-            VALUES (?, ?, ?, ?, ?)
+            INSERT INTO fichamento (email_aluno, nome, capitulo, turma, fichamento, titulo)
+            VALUES (?, ?, ?, ?, ?, ?)
         ");
         if ($stmt === false) {
             $errors[] = "Erro na preparação da query: " . $conexao->error;
         } else {
-            $stmt->bind_param("sssis", $logado, $nome, $capitulo, $turma_int, $fichamento);
+            $stmt->bind_param("sssiss", $logado, $nome, $capitulo, $turma_int, $fichamento, $categoria_id);
             if ($stmt->execute()) {
                 // redirect limpo ao sucesso
                 header("Location: livros_atualizado.php?msg=ok");

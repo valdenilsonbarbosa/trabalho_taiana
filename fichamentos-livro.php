@@ -1,40 +1,34 @@
 <?php
-
 session_start();
-
 include_once('config.php');
+
 if (!isset($_SESSION['email']) || !isset($_SESSION['senha'])) {
-  $_SESSION['tipo'] = 'convidado'; // define tipo visitante
+    $_SESSION['tipo'] = 'convidado'; // define tipo visitante
 } else {
-  $logado = $_SESSION['email'];
-  $senha = $_SESSION['senha'];
+    $logado = $_SESSION['email'];
+    $senha = $_SESSION['senha'];
 
-  // Verifica se é o "professor"
-if (
-  ($logado === 'gui@gmail.com' && $senha === '123456') ||
-  ($logado === 'elias@gmail.com' && $senha === '123456')
-) {
-  $_SESSION['tipo'] = 'professor';
-} else {
-  $_SESSION['tipo'] = 'aluno';
+    // Verifica se é o "professor"
+    if (
+        ($logado === 'gui@gmail.com' && $senha === '123456') ||
+        ($logado === 'elias@gmail.com' && $senha === '123456')
+    ) {
+        $_SESSION['tipo'] = 'professor';
+    } else {
+        $_SESSION['tipo'] = 'aluno';
+    }
 }
 
+// Pega o título vindo do formulário
+$categoria_id = $_POST['titulo'] ?? '';
 
-}
-
-
-$sql = "SELECT * FROM fichamento";
-
-
-
-$result = $conexao->query($sql);
-
-
-$categoria_id = $_POST['categoria_id'];
-
-//  print_r($result);
+// Filtra os fichamentos apenas do livro correspondente
+$sql = "SELECT * FROM fichamento WHERE titulo = ?";
+$stmt = $conexao->prepare($sql);
+$stmt->bind_param("s", $categoria_id);
+$stmt->execute();
+$result = $stmt->get_result();
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -54,20 +48,17 @@ $categoria_id = $_POST['categoria_id'];
   <title>PROJETO LITERATURA</title>
 
   <style>
-
-    .menu-desktop{
+    .menu-desktop {
       gap: 1rem;
     }
 
     .container {
-      
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
     }
 
     .caixa {
-      
       border: 1px solid #ccc;
       padding: 20px;
       width: 200px;
@@ -81,7 +72,6 @@ $categoria_id = $_POST['categoria_id'];
       background-color: #FFF;
     }
 
-
     table {
       font-size: 15px;
       text-align: center;
@@ -91,7 +81,6 @@ $categoria_id = $_POST['categoria_id'];
       background-color: #FFF;
       margin: 20px auto;
     }
-
 
     th,
     td {
@@ -110,14 +99,11 @@ $categoria_id = $_POST['categoria_id'];
       padding: 10px;
     }
   </style>
-
-
 </head>
 
 <body>
-  <!-- Cabeçalho do site -->
-  
- <header>
+  <!-- Cabeçalho -->
+  <header>
         <div class="logo">
             <img src="IMG/logo-litera-Photoroom.png" alt="" width="250px" height="30px">
         </div>
@@ -246,39 +232,28 @@ $categoria_id = $_POST['categoria_id'];
 
   <div class="corp-title">
     <div class="title">
-      <?php
-
-      echo "<h2>" . $categoria_id . "</h2>"
-      ?>
-      <!-- <h2>Fichamentos</h2> -->
+      <?php echo "<h2>" . htmlspecialchars($categoria_id) . "</h2>"; ?>
     </div>
   </div>
+
   <table>
-
-
-    <!-- <div class="container" -->>
     <tbody>
       <?php
-      $cont = 0;
       $capitulos_por_aluno = [];
 
       if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-          
-            $nome = $row['nome'];
-            $capitulo = [
-              'id' => $row['id'],
-              'capitulo' => $row['capitulo']
-            ];
-
- 
-            if (!isset($capitulos_por_aluno[$nome])) {
-              $capitulos_por_aluno[$nome] = [];
-            }
-            $capitulos_por_aluno[$nome][] = $capitulo;
-          
+          $nome = $row['nome'];
+          $capitulo = [
+            'id' => $row['id'],
+            'capitulo' => $row['capitulo'],
+            'titulo' => $row['titulo']
+          ];
+          if (!isset($capitulos_por_aluno[$nome])) {
+            $capitulos_por_aluno[$nome] = [];
+          }
+          $capitulos_por_aluno[$nome][] = $capitulo;
         }
-
 
         echo "<table border='1'>";
         echo "<tr><th>Nome</th><th>Pareceres</th></tr>";
@@ -296,34 +271,10 @@ $categoria_id = $_POST['categoria_id'];
 
         echo "</table>";
       } else {
-        echo "Nenhuma informação encontrada.";
+        echo "Nenhum fichamento encontrado para este livro.";
       }
       ?>
     </tbody>
   </table>
-  <thead>
-    <tr>
-      <th></th>
-
-    </tr>
-
-
-  </thead>
-
-
-  <?php
-
-  // $conn->close();
-  ?>
-
-
-
-  </div>
-
-
-
-
-
 </body>
-
 </html>

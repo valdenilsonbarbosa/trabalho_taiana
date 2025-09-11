@@ -326,7 +326,7 @@ $result = $conexao->query($sql);
 
         <form action="fichamentos-livro.php" method="post" style="display:inline;">
 
-          <input type="hidden" name="categoria_id" value="<?php echo $row['livro']; ?>">
+          <input type="hidden" name="titulo" value="<?php echo $row['livro']; ?>">
 
           <div class="btn"><button type="submit" class="button">Ver Pareceres</button></div>
           
