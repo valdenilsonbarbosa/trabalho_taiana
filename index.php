@@ -517,29 +517,18 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['senha'])) {
         <div class="texto-introducao">
 
             <p class="texto">
-                Este site nasceu a partir de uma atividade somatória da turma de 2ª série do ensino médio do
+                Este site nasceu a partir de uma atividade somatória das turmas de 2ª série do ensino médio do
                 CETAF-Estância
                 (Senai) proposta na disciplina de Língua Portuguesa, ministrada pela Profª Ma. Taiana Menezes de Jesus.
                 Na
                 sua
-                primeira edição, realizada em 2025, participaram ativamente os estudantes do curso de Desenvolvimento de
-                Sistemas, no período da manhã. A professora, idealizadora do projeto, buscou não apenas cumprir um
+                primeira edição, realizada em 2025, participaram ativamente os estudantes dos cursos de Desenvolvimento de
+                Sistemas e Eletromecânica do período da manhã. A professora, idealizadora do projeto, buscou não apenas cumprir um
                 objetivo
                 avaliativo, mas criar uma oportunidade para que os alunos se envolvessem de forma criativa e prática com
                 a
                 leitura e a interpretação de textos literários. <br> <br>
 
-                O desenvolvimento deste site só foi possível graças à colaboração, dedicação e competência dos
-                estudantes
-                voluntários da turma de Desenvolvimento de Sistemas, que transformaram uma simples ideia em um produto
-                final
-                funcional e visualmente atrativo. O grupo enfrentou desafios técnicos, tomou decisões de design e
-                estruturou
-                o
-                conteúdo de forma a tornar a experiência do visitante
-                agradável e enriquecedora. Esse processo colaborativo não só resultou em um trabalho de qualidade, como
-                também
-                reforçou o valor da união entre conhecimentos técnicos e habilidades linguísticas. <br> <br>
 
                 Os pareceres e fichamentos aqui publicados são fruto do trabalho de leitura das obras indicadas em sala
                 de
@@ -555,7 +544,20 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['senha'])) {
                 cada aluno recebeu e sentiu cada obra, transformando o ato da leitura em um exercício de expressão
                 pessoal e
                 de
-                valorização cultural. <br>
+                valorização cultural. <br> <br>
+
+                
+                O desenvolvimento deste site só foi possível graças à colaboração, dedicação e competência dos
+                estudantes
+                voluntários da turma de Desenvolvimento de Sistemas, que transformaram uma ideia em um produto
+                final
+                funcional e visualmente atrativo. O grupo enfrentou desafios técnicos, tomou decisões de design e
+                estruturou
+                o
+                conteúdo de forma a tornar a experiência do visitante
+                agradável e enriquecedora. Esse processo colaborativo não só resultou em um trabalho de qualidade, como
+                também
+                reforçou o valor da união entre conhecimentos técnicos e habilidades linguísticas. <br>
             </p>
 
         </div>
