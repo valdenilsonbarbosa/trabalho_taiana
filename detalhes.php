@@ -26,10 +26,10 @@ if (isset($_POST['acao']) && $_POST['acao'] === 'excluir' && isset($_POST['id'])
         $stmt = $conexao->prepare("DELETE FROM fichamento WHERE id = ?");
         $stmt->bind_param("i", $id);
         $stmt->execute();
-        echo "<script>alert('Fichamento excluído com sucesso!'); window.location.href='livros_atualizado.php';</script>";
+        echo "<script>alert('Fichamento excluído com sucesso!'); window.location.href = 'livros_atualizado.php';</script>";
         exit;
     } else {
-        echo "<script>alert('Você não tem permissão para excluir este fichamento!'); window.location.href='livros_atualizado.php';</script>";
+        echo "<script>alert('Você não tem permissão para excluir este fichamento!'); window.location.href = 'livros_atualizado.php';</script>";
         exit;
     }
 }
@@ -49,10 +49,10 @@ if (isset($_POST['acao']) && $_POST['acao'] === 'editar' && isset($_POST['id']) 
         $stmt = $conexao->prepare("UPDATE fichamento SET fichamento = ? WHERE id = ?");
         $stmt->bind_param("si", $novo_fichamento, $id);
         $stmt->execute();
-        echo "<script>alert('Fichamento atualizado com sucesso!'); window.location.href='?id=$id';</script>";
+        echo "<script>alert('Fichamento atualizado com sucesso!'); window.location.href = '?id=$id';</script>";
         exit;
     } else {
-        echo "<script>alert('Você não tem permissão para editar este fichamento!'); window.location.href='?id=$id';</script>";
+        echo "<script>alert('Você não tem permissão para editar este fichamento!'); window.location.href = '?id=$id';</script>";
         exit;
     }
 }
@@ -60,9 +60,10 @@ if (isset($_POST['acao']) && $_POST['acao'] === 'editar' && isset($_POST['id']) 
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
 
- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=Koulen&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
@@ -73,165 +74,216 @@ if (isset($_POST['acao']) && $_POST['acao'] === 'editar' && isset($_POST['id']) 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
     <link rel="stylesheet" href="CSS/style.css">
-    
-<meta charset="UTF-8">
-<title>Detalhes do Fichamento</title>
 
-<style>
- 
+    <meta charset="UTF-8">
+    <title>Detalhes do Fichamento</title>
 
-/* empurra a caixa pra baixo */
+    <style>
+        /* empurra a caixa pra baixo */
 
 
 
-.caixa {
-    
-    max-width: 900px;
-    min-height: 1000px;
-    padding: 30px;
-    background: #fff7e6;
-    border: 3px solid #8b0000;
-    border-radius: 6px;
-    margin: 120px auto 0 auto;  /* 👈 isso desce a caixa pra baixo do header */
-    box-shadow: 0px 4px 8px #8b0000(0,0,0,0.15);
+        .caixa {
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-}
+            max-width: 900px;
+            min-height: 1000px;
+            padding: 30px;
+            background: #fff7e6;
+            border: 3px solid #8b0000;
+            border-radius: 6px;
+            margin: 120px auto 0 auto;
+            /* 👈 isso desce a caixa pra baixo do header */
+            box-shadow: 0px 4px 8px #8b0000(0, 0, 0, 0.15);
 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
-
-.titulo {
-    text-align: center;
-    color: #a52a2a;
-    font-weight: bold;
-    font-size: 30px;
-    margin-bottom: 5px;
-}
-
-.subtitulo {
-    text-align: center;
-    color: black;
-    font-weight: bold;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.texto-fichamento {
-    text-align: justify;
-    font-size: 18px;
-    line-height: 1.7;
-    color: #2c2c2c;
-    border: 3px solid #8b0000;
-    padding: 20px;
-    border-radius: 6px;
-    background: #fff7e6;
-
-    /* 👇 Correções */
-    width: 100%;               /* ocupa toda a largura da caixa externa */
-    min-height: 800px;         /* altura mínima fixa */
-    max-width: 750px;          /* largura máxima parecida com a da imagem */
-    margin: 0 auto;            /* centraliza a caixa */
-    
-    overflow-wrap: break-word; /* quebra palavras grandes */
-    word-break: break-word;    /* força quebra de palavras longas */
-    white-space: pre-wrap;     /* mantém quebras de linha do banco */
-    
-}
+        }
 
 
 
-.botoes-acoes {
-    margin-top: 25px;
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-}
-.botoes-acoes button {
-    padding: 10px 22px;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.btn-editar {
-    background-color: #f3ba2b;
-    color: white;
-}
-.btn-excluir {
-    padding: 10px 22px;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-    background-color: #5a2d0c;
-    color: white;
-    text-decoration: none;
-}
-.botoes-acoes button:hover,.btn-excluir {
-    opacity: 0.85;
-    transform: scale(1.05);
-}
+        .titulo {
+            text-align: center;
+            color: #a52a2a;
+            font-weight: bold;
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
 
-textarea {
-    width: 750px;         /* largura fixa igual à caixa de exibição */
-    min-height: 800px;    /* altura mínima */
-    padding: 20px;
-    font-size: 18px;
-    line-height: 1.7;
-    border: 3px solid #8b0000;
-    border-radius: 6px;
-    resize: none;
-    display: block;
-    margin: 0 auto;       /* centraliza na tela */
-    font-family: "Times New Roman", serif;
-    text-align: justify;
-    white-space: pre-wrap;
-    overflow-wrap: break-word;
-    word-break: break-word;
-    background:#fff7e6;
-}
+        .subtitulo {
+            text-align: center;
+            color: black;
+            font-weight: bold;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
 
-/* ================= RESPONSIVIDADE ================= */
+        .texto-fichamento {
+            text-align: justify;
+            font-size: 18px;
+            line-height: 1.7;
+            color: #2c2c2c;
+            border: 3px solid #8b0000;
+            padding: 20px;
+            border-radius: 6px;
+            background: #fff7e6;
 
-/* ================= RESPONSIVIDADE CORRETA ================= */
+            /* 👇 Correções */
+            width: 100%;
+            /* ocupa toda a largura da caixa externa */
+            min-height: 800px;
+            /* altura mínima fixa */
+            max-width: 750px;
+            /* largura máxima parecida com a da imagem */
+            margin: 0 auto;
+            /* centraliza a caixa */
 
-/* Tablets e telas médias */
+            overflow-wrap: break-word;
+            /* quebra palavras grandes */
+            word-break: break-word;
+            /* força quebra de palavras longas */
+            white-space: pre-wrap;
+            /* mantém quebras de linha do banco */
 
-/* ================= RESPONSIVIDADE ================= */
-@media (max-width: 1024px) {
-    .caixa { max-width: 80%; padding: 20px; max-width: 900px;
-    min-height: 1000px; }
-    .titulo { font-size: 26px; }
-    .subtitulo { font-size: 20px; }
-    .texto-fichamento, textarea { font-size: 16px; min-height: 850px; padding: 15px; }
-}
-
-@media (max-width: 768px) {
-    .caixa { max-width: 80%; padding: 15px;  max-width: 900px;
-    min-height: 900px; }
-    .titulo { font-size: 24px; }
-    .subtitulo { font-size: 18px; }
-    .texto-fichamento, textarea { font-size: 15px; min-height: 600px; padding: 12px; max-width: 350px}
-    .botoes-acoes { flex-direction: column; gap: 10px; }
-    .botoes-acoes button, .botoes-acoes a { width: 100%; }
-}
+        }
 
 
 
+        .botoes-acoes {
+            margin-top: 25px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
 
+        .botoes-acoes button {
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-</style>
+        .btn-editar {
+            background-color: #f3ba2b;
+            color: white;
+        }
+
+        .btn-excluir {
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            background-color: #5a2d0c;
+            color: white;
+            text-decoration: none;
+        }
+
+        .botoes-acoes button:hover,
+        .btn-excluir {
+            opacity: 0.85;
+            transform: scale(1.05);
+        }
+
+        textarea {
+            width: 750px;
+            /* largura fixa igual à caixa de exibição */
+            min-height: 800px;
+            /* altura mínima */
+            padding: 20px;
+            font-size: 18px;
+            line-height: 1.7;
+            border: 3px solid #8b0000;
+            border-radius: 6px;
+            resize: none;
+            display: block;
+            margin: 0 auto;
+            /* centraliza na tela */
+            font-family: "Times New Roman", serif;
+            text-align: justify;
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+            word-break: break-word;
+            background: #fff7e6;
+        }
+
+        /* ================= RESPONSIVIDADE ================= */
+
+        /* ================= RESPONSIVIDADE CORRETA ================= */
+
+        /* Tablets e telas médias */
+
+        /* ================= RESPONSIVIDADE ================= */
+        @media (max-width: 1024px) {
+            .caixa {
+                max-width: 80%;
+                padding: 20px;
+                max-width: 900px;
+                min-height: 1000px;
+            }
+
+            .titulo {
+                font-size: 26px;
+            }
+
+            .subtitulo {
+                font-size: 20px;
+            }
+
+            .texto-fichamento,
+            textarea {
+                font-size: 16px;
+                min-height: 850px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .caixa {
+                max-width: 80%;
+                padding: 15px;
+                max-width: 900px;
+                min-height: 900px;
+            }
+
+            .titulo {
+                font-size: 24px;
+            }
+
+            .subtitulo {
+                font-size: 18px;
+            }
+
+            .texto-fichamento,
+            textarea {
+                font-size: 15px;
+                min-height: 600px;
+                padding: 12px;
+                max-width: 350px
+            }
+
+            .botoes-acoes {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .botoes-acoes button,
+            .botoes-acoes a {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
- <header>
+    <header>
         <div class="logo">
             <img src="IMG/logo-litera-Photoroom.png" alt="" width="250px" height="30px">
         </div>
@@ -253,8 +305,8 @@ textarea {
                             d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z" />
                         <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z" />
                     </svg>Home</a></li>
-            <li><a href="livros_atualizado.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                        class="bi bi-book-half" viewBox="0 0 16 16">
+            <li><a href="livros_atualizado.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                        fill="currentColor" class="bi bi-book-half" viewBox="0 0 16 16">
                         <path
                             d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783" />
                     </svg> Livros</a></li>
@@ -268,26 +320,26 @@ textarea {
             </li>
 
             <?php if (isset($_SESSION['email'])): ?>
-    <!-- Se estiver logado, mostra a porta 🚪 -->
-    <li>
-          <a href="logout.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-              class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-              <path fill-rule="evenodd"
-                d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z" />
-              <path fill-rule="evenodd"
-                d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
-            </svg>Sair</a>
-        </li>
-    
-      <?php else: ?>
-    <!-- Se não estiver logado, mostra o login -->
-    <li>
-                    <a href="login.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                            fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                        </svg>Login</a>
-                </li>
-      <?php endif; ?>
+            <!-- Se estiver logado, mostra a porta 🚪 -->
+            <li>
+                <a href="logout.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z" />
+                        <path fill-rule="evenodd"
+                            d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
+                    </svg>Sair</a>
+            </li>
+
+            <?php else: ?>
+            <!-- Se não estiver logado, mostra o login -->
+            <li>
+                <a href="login.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-person-fill" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                    </svg>Login</a>
+            </li>
+            <?php endif; ?>
         </ul>
     </div>
 
@@ -332,33 +384,33 @@ textarea {
                 </li>
                 <!--TURMAS ICON-->
 
-               <?php if (isset($_SESSION['email'])): ?>
-    <!-- Se estiver logado, mostra a porta 🚪 -->
-    <li>
-          <a href="logout.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-              class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-              <path fill-rule="evenodd"
-                d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z" />
-              <path fill-rule="evenodd"
-                d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
-            </svg></a>
-        </li>
-    
-      <?php else: ?>
-    <!-- Se não estiver logado, mostra o login -->
-    <li>
+                <?php if (isset($_SESSION['email'])): ?>
+                <!-- Se estiver logado, mostra a porta 🚪 -->
+                <li>
+                    <a href="logout.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z" />
+                            <path fill-rule="evenodd"
+                                d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
+                        </svg></a>
+                </li>
+
+                <?php else: ?>
+                <!-- Se não estiver logado, mostra o login -->
+                <li>
                     <a href="login.php"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                             fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
                         </svg></a>
                 </li>
-      <?php endif; ?>
+                <?php endif; ?>
             </ul>
         </nav>
     </div>
     </header>
-<div class="caixa">
-<?php
+    <div class="caixa">
+        <?php
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
     $stmt = $conexao->prepare("SELECT f.*, t.t AS turma_nome 
@@ -409,6 +461,7 @@ if (isset($_GET['id'])) {
 }
 $conexao->close();
 ?>
-</div>
+    </div>
 </body>
+
 </html>
