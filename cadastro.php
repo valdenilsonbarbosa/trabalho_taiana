@@ -103,6 +103,8 @@ if (isset($_POST['submit'])) {
     </nav>
   </div>
 
+  <div class="cadastro-fundo">
+
   <div class="cadastro-container">
     <div class="login-corp">
       <div class="cadastro-icon">
@@ -209,6 +211,8 @@ if (isset($_POST['submit'])) {
       </p>
     </form>
   </div>
+  </div>
+  
 
   <!--JS-->
   <script>

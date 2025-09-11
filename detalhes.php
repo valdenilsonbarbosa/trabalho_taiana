@@ -213,15 +213,10 @@ if (isset($_POST['acao']) && $_POST['acao'] === 'editar' && isset($_POST['id']) 
             background: #fff7e6;
         }
 
-        /* ================= RESPONSIVIDADE ================= */
-
-        /* ================= RESPONSIVIDADE CORRETA ================= */
-
-        /* Tablets e telas médias */
-
-        /* ================= RESPONSIVIDADE ================= */
+   
         @media (max-width: 1024px) {
             .caixa {
+                width:80%
                 max-width: 80%;
                 padding: 20px;
                 max-width: 900px;
@@ -238,6 +233,7 @@ if (isset($_POST['acao']) && $_POST['acao'] === 'editar' && isset($_POST['id']) 
 
             .texto-fichamento,
             textarea {
+               
                 font-size: 16px;
                 min-height: 850px;
                 padding: 15px;
@@ -246,10 +242,11 @@ if (isset($_POST['acao']) && $_POST['acao'] === 'editar' && isset($_POST['id']) 
 
         @media (max-width: 768px) {
             .caixa {
+                width:87%;
                 max-width: 80%;
                 padding: 15px;
                 max-width: 900px;
-                min-height: 900px;
+                min-height: 700px;
             }
 
             .titulo {
@@ -263,20 +260,14 @@ if (isset($_POST['acao']) && $_POST['acao'] === 'editar' && isset($_POST['id']) 
             .texto-fichamento,
             textarea {
                 font-size: 15px;
-                min-height: 600px;
+                min-height: 500px;
                 padding: 12px;
                 max-width: 350px
             }
 
-            .botoes-acoes {
-                flex-direction: column;
-                gap: 10px;
-            }
+           
 
-            .botoes-acoes button,
-            .botoes-acoes a {
-                width: 100%;
-            }
+           
         }
     </style>
 </head>
